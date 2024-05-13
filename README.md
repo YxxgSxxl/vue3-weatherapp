@@ -13,7 +13,7 @@ This app is using the <a href="https://openweathermap.org" target="_blank">OpenW
 ## API Key 
 To make the app work correctly, you need to get an API key (free) on <a href="https://openweathermap.org/api" target="_blank">OpenWeather Website</a> 
 
-then, rename the "app.config__blank.js" to "app.config.js" and add you API key in the file.
+then, look at the root dir of the repo and rename the "app.config__blank.js" to "app.config.js" and add you API key in the file.
 
 ## Project setup
 ```

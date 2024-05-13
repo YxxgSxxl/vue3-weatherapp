@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import * as AppConfig from '../app.config.js';
+import * as AppConfig from '../../app.config.js'; /* Config file initialized */
 
 export default {
     data() {
