@@ -1,15 +1,13 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <TestComp/>
 </template>
 
 <script>
-import TestComp from './components/TestComp.vue';
 
 export default {
   name: 'App',
   components: {
-    TestComp
+    
   }
 }
 </script>
