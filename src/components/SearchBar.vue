@@ -14,7 +14,7 @@ export default {
 
     methods: {
         search() {
-            document.querySelector('p').innerText = this.query;
+            document.querySelector('p').innerHTML = "<a href='http://api.openweathermap.org/data/2.5/weather?q=" + this.query + "&appid=95542917d76459372397547a96610cd8' target='_blank'>" + this.query +"</a>";
         }
     }
 }

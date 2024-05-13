@@ -63,7 +63,7 @@ header {
         background-color: #393F86;
         height: 3rem;
         padding: 1rem 8rem 1rem 8rem;
-        font-size: 20px;
+        font-size: 18px;
 
         img {
             width: 52px;
