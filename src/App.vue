@@ -1,13 +1,17 @@
 <template>
-  <p>Here</p>
+  <HeaderComp/>
+
+  <h1>Weather App</h1>
+  <a href="">zdjzdk</a>
 </template>
 
 <script>
+import HeaderComp from './components/HeaderComp.vue'
 
 export default {
   name: 'App',
   components: {
-    
+    HeaderComp,
   }
 }
 </script>
@@ -21,7 +25,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  /* color: #2c3e50; */
 }
 </style>
