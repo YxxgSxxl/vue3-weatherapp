@@ -1,7 +1,7 @@
 <template>
-  <input type="text" name="" id="" v-model="query" @keydown.enter="search()" placeholder="Search the city you want...">
+  <input type="text" name="" id="" v-model.trim="query" @keydown.enter="search()" placeholder="Search the city you want...">
   <br>
-  <p>{{ result }}</p>
+  <p></p>
 </template>
 
 <script>
@@ -13,8 +13,12 @@ export default {
     },
 
     methods: {
-        search() {
+        async search() {
             document.querySelector('p').innerHTML = "<a href='http://api.openweathermap.org/data/2.5/weather?q=" + this.query + "&appid=95542917d76459372397547a96610cd8' target='_blank'>" + this.query +"</a>";
+
+            const query = await fetch("http://api.openweathermap.org/data/2.5/weather?q=" + this.query + "&appid=95542917d76459372397547a96610cd8");
+            const weather = await query.json();
+            console.log(weather);
         }
     }
 }
