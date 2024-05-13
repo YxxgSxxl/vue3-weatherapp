@@ -6,7 +6,9 @@ This app is using the <a href="https://openweathermap.org" target="_blank">OpenW
 ## Further informations 
 - VueJS 3 used with webpack. 
 
-- SCSS and normalize.css used.
+- SCSS and normalize.css used. 
+
+- This app is responsive. 
 
 ## Project setup
 ```

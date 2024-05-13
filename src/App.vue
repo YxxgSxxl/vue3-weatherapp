@@ -1,7 +1,7 @@
 <template>
   <HeaderComp/>
 
-  <h1>Weather App</h1>
+  <h1>Welcome on the Weather App!</h1>
   <a href="">zdjzdk</a>
 </template>
 

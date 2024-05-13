@@ -1,6 +1,8 @@
 <template>
   <header>
-    <img src="/img/weather-logo.png" alt="">
+    <a href="#">
+        <img src="/img/weather-logo.png" alt="">
+    </a>
 
     <ul>
         <a href="index.html"><li>Home</li></a>
@@ -31,8 +33,7 @@ header {
     align-items: center;
 
     img {
-        width: 100%;
-        height: auto;
+        width: 36px;
     }
 
     ul {

@@ -2,6 +2,9 @@
 node_modules
 /dist
 
+# Screenshots
+*_call*.png
+vue-mq.png
 
 # local env files
 .env.local
