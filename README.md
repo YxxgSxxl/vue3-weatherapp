@@ -1,9 +1,9 @@
 # Weater App ! 
 
 ## Further informations 
-VueJS 3 used with webpack. 
+- VueJS 3 used with webpack. 
 
-SCSS and normalize.css used.
+- SCSS and normalize.css used.
 
 ## Project setup
 ```
