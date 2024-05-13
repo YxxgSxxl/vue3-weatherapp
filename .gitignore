@@ -2,6 +2,9 @@
 node_modules
 /dist
 
+# Config files
+app.config.js
+
 # Screenshots
 *_call*.png
 vue-mq.png
