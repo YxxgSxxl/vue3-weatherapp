@@ -1,4 +1,5 @@
 <template>
+  <p>Here</p>
 </template>
 
 <script>
