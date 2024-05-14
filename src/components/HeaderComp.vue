@@ -1,12 +1,19 @@
 <template>
   <header>
-    <a href="index.html">
-        <img src="/img/weather-logo.png" alt="">
-    </a>
+    <nav-link>
+        <a href="#">
+            <img src="/img/weather-logo.png" alt="">
+        </a>
+    </nav-link>
 
     <ul>
-        <a href="index.html"><li>Home</li></a>
-        <a href="#"><li>DashBoard</li></a>
+        <router-link to="/">
+            <a href="#"><li>Home</li></a>
+        </router-link>
+        <router-link to="/Dashboard">
+            <a href="#"><li>DashBoard</li></a>
+        </router-link>
+        
     </ul>
   </header>
 </template>

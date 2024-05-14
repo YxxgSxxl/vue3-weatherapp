@@ -1,20 +1,13 @@
 <template>
-  <HeaderComp/>
-
-  <h1>Welcome to the <span class="h1-gradient">Weather App!</span></h1>
-
-  <SearchBar/>
+  <div id="app">    
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-import HeaderComp from './components/HeaderComp.vue';
-import SearchBar from './components/SearchBar.vue';
-
 export default {
   name: 'App',
   components: {
-    HeaderComp,
-    SearchBar
   }
 }
 </script>
