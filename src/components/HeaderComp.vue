@@ -2,7 +2,7 @@
   <header>
     <nav-link>
         <a href="#">
-            <img src="/img/weather-logo.png" alt="">
+            <img src="/img/weather-logo.png" alt="Header Logo">
         </a>
     </nav-link>
 
@@ -73,7 +73,7 @@ header {
         font-size: 18px;
 
         img {
-            width: 52px;
+            width: 64px;
         }
     }
 }
