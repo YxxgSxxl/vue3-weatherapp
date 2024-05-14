@@ -32,7 +32,7 @@ export default {
                 document.querySelector('p').innerHTML += JSON.stringify(weather);
             } else {
                 let error = 'Ville non trouvée';
-                document.querySelector('p').innerText = error;
+                document.querySelector('p').innerHTML = "<span style='color: #b45252;'>" + error + "</span>";
             }
         }
     }

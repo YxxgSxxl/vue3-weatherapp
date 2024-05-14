@@ -1,5 +1,9 @@
 <template>
-    <SearchBar/>
+    <div class="dashboard-wrapper">
+        <h1>Search the city you want:</h1>
+        
+        <SearchBar/>
+    </div>
 </template>
 
 <script>

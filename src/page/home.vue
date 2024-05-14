@@ -1,9 +1,11 @@
 <template>
-    <h1>Welcome to the <span class="h1-gradient">Weather App!</span></h1>
-
-    <router-link to="/Weather">
-            <a href="#"><li>Home</li></a>
-    </router-link>
+    <div class="home-wrapper">
+        <h1>Welcome to the <span class="h1-gradient">Weather App!</span></h1>
+    
+        <router-link to="/Weather">
+                <a href="#"><li>Home</li></a>
+        </router-link>
+    </div>
 </template>
 
 <script>
