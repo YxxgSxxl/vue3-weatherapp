@@ -18,19 +18,21 @@ export default {
 
     methods: {
         async search() {
-            document.querySelector('p').innerHTML = "<a href='http://api.openweathermap.org/data/2.5/weather?q=" + this.query + "&units=metric&appid=" + AppConfig.APIKEY +"' target='_blank'>" + this.query +"</a><br><br>";
-
+            
             const query = await fetch("http://api.openweathermap.org/data/2.5/weather?q=" + this.query + "&units=metric&appid=" + AppConfig.APIKEY + "")
             .catch(error => console.log(error));
+            // If the query works
             if (query.ok) {
                 const weather = await query.json();
-
+                
+                document.querySelector('p').innerHTML += "<a href='http://api.openweathermap.org/data/2.5/weather?q=" + this.query + "&units=metric&appid=" + AppConfig.APIKEY +"' target='_blank'>" + this.query +"</a><br><br>";
+                
                 console.log(weather);
 
-                document.querySelector('p').innerText += JSON.stringify(weather);
+                document.querySelector('p').innerHTML += JSON.stringify(weather);
             } else {
                 let error = 'Ville non trouvée';
-                document.querySelector('p').innerText += error;
+                document.querySelector('p').innerText = error;
             }
         }
     }
