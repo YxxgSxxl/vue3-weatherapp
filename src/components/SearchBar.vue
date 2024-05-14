@@ -1,8 +1,8 @@
 <template>
     <div class="searchbar-wrapper">
-        <input type="text" name="" id="" v-model.trim="query" v-bind:class="[isActive ? 'displayed' : 'hidden']" @keydown.enter="search()" placeholder="Search the city you want...">
+        <input type="text" name="" id="" v-model.trim="query" @keydown.enter="search()" placeholder="Search the city you want...">
         <p></p>
-        <div class="searchbar-result" v-if="typeof weather.cod != '200'">
+        <div class="searchbar-result">
             <WeatherCard/>
         </div>
     </div>
@@ -34,6 +34,7 @@ export default {
         // },
         // results(results) {
         //     this.weather = results;
+        //     console.log(results);
         // },
         async search() {
             const query = await fetch(`${this.api_base}${this.query}&units=metric&appid=${AppConfig.APIKEY}`)
