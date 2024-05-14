@@ -2,7 +2,7 @@
     <div class="searchbar-wrapper">
         <input type="text" name="" id="" v-model.trim="query" v-bind:class="[isActive ? 'displayed' : 'hidden']" @keydown.enter="search()" placeholder="Search the city you want...">
         <p></p>
-        <div class="searchbar-result" v-if="typeof weather.main != 'undefined'">
+        <div class="searchbar-result" v-if="typeof weather.cod != '200'">
             <WeatherCard/>
         </div>
     </div>
