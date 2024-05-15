@@ -5,20 +5,17 @@
         <SearchBar @weather="show"/>
         
         <!-- WeatherCard here -->
-        <WeatherCard/>
+        <router-link class="wcard-wrapper" to="/Weather">
 
-  <router-link class="wcard-wrapper" to="/Weather">
+        <!-- <div class="wcard-weather"></div>    
 
-    <div class="wcard-weather"></div>    
-
-    <div class="wcard-temp"></div>
-  </router-link>
+            <div class="wcard-temp"></div> -->
+        </router-link>
     </div>
 </template>
 
 <script>
 import SearchBar from '@/components/SearchBar.vue';
-import WeatherCard from '@/components/WeatherCard.vue';
 
 export default {
     name: 'dashboardPage',
@@ -30,7 +27,6 @@ export default {
     },
     components: {
     SearchBar,
-    WeatherCard,
   },
   props: {
 
