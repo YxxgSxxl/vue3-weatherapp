@@ -31,7 +31,8 @@ export default {
                 });
 
                 this.$emit('weather', {icon: weather.weather[0].icon, name: weather.name, country: weather.sys.country, temp: weather.main.temp, desc: weather.weather[0].description});
-            } else {                
+            } else {      
+                          
                 document.querySelector('.wcard-wrapper').innerHTML = ""; 
                 
                 let error = 'City not found';

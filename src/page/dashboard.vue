@@ -37,7 +37,7 @@ export default {
         document.querySelector('.wcard-wrapper').innerHTML += `<div class="wcard-location">${weather.name}, ${weather.country}</div>`;
         document.querySelector('.wcard-wrapper').innerHTML += `<div class="wcard-temp">${weather.temp}°C</div>`;
         document.querySelector('.wcard-wrapper').innerHTML += `<div class="wcard-description">${weather.desc}</div>`;
-        document.querySelector('.wcard-wrapper').innerHTML += `</router-link>`;
+        document.querySelector('.wcard-wrapper').innerHTML += '</router-link>';
     }
   }
 }
