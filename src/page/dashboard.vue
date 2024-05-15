@@ -6,8 +6,8 @@
         <p></p>
         
         <!-- WeatherCard here -->
-        <div class="wcard-wrapper">
-            <!-- <router-link :to="{ name: 'WeatherDetails', params:  { id: 'pouet' }}"/> -->
+        <div class="wcard">
+            <div class="wcard-wrapper"></div>
         </div>
     </div>
 </template>
@@ -31,13 +31,14 @@ export default {
   methods: {
     // Fonction from SearchBar child comp ($emit used)
     show(weather) {
+        document.querySelector('.wcard').innerHTML += `<router-link :to="{ name: 'WeatherDetails', params: { id: ${weather.name} }">`;
         document.querySelector('.wcard-wrapper').innerHTML = "";
-        document.querySelector('.wcard-wrapper').innerHTML += `<router-link :to="{ name: 'WeatherDetails', params: { id: ${weather.name} }">`;
+        document.querySelector('.wcard-wrapper').innerHTML = "";
         document.querySelector('.wcard-wrapper').innerHTML += `<div class="wcard-image"><img src="${this.api_icons}${weather.icon}.png"</div>`;
         document.querySelector('.wcard-wrapper').innerHTML += `<div class="wcard-location">${weather.name}, ${weather.country}</div>`;
         document.querySelector('.wcard-wrapper').innerHTML += `<div class="wcard-temp">${weather.temp}°C</div>`;
         document.querySelector('.wcard-wrapper').innerHTML += `<div class="wcard-description">${weather.desc}</div>`;
-        document.querySelector('.wcard-wrapper').innerHTML += '</router-link>';
+        document.querySelector('.wcard').innerHTML += '</router-link>';
     }
   }
 }
@@ -87,6 +88,7 @@ export default {
     font-size: 1.5em;
     font-style: italic;
     text-shadow: 3px 4px rgba($color: #000000, $alpha: .35);
+    margin-bottom: 1rem;
   }
 }
 
