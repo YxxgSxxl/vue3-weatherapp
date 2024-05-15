@@ -12,7 +12,6 @@ export default {
     data() {
         return {
             api_base: 'http://api.openweathermap.org/data/2.5/weather?q=',
-            api_icons: 'https://openweathermap.org/img/w/',
             query: '',
             weather: {},
         }
@@ -32,24 +31,9 @@ export default {
                     console.log(key, weather[key]);
                 });
 
-                // console.log(weather);
-
-                // document.querySelector('p').innerHTML += this.$emit('wname', JSON.stringify(this.weather));
-
-                // let searchres = document.querySelector('.searchbar-result');
-                // let wicon = this.api_icons + this.weather + Object.values(this.weather) + ".png";
-                // let wname = this.weather.name;
-                // let wcountry = this.weather.sys.country;
-
-                // searchres.innerHTML = '';
-                // searchres.innerHTML += '<router-link class="wcard-wrapper" to="/Weather">';
-                // searchres.innerHTML += `<div class="wcard-image"><img src="${wicon}" alt="Weather Card Image">${wicon + " " + this.weather}</div>`;
-                // searchres.innerHTML += wname + ", " + wcountry;
-                // searchres.innerHTML += '<router-link class="wcard-wrapper" to="/Weather">';
-            } else {
-                // let searchres = document.querySelector('.searchbar-result');
-                
-                // searchres.innerHTML = ""; 
+                this.$emit('weather', {icon: weather.weather[0].icon, name: weather.name, country: weather.sys.country});
+            } else {                
+                document.querySelector('.wcard-wrapper').innerHTML = ""; 
                 
                 let error = 'Ville non trouvée';
                 
