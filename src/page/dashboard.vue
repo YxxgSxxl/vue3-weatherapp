@@ -6,7 +6,9 @@
         <p></p>
         
         <!-- WeatherCard here -->
-        <router-link class="wcard-wrapper" to="/Weather/:id"/>
+        <div class="wcard-wrapper">
+            <!-- <router-link :to="{ name: 'WeatherDetails', params:  { id: 'pouet' }}"/> -->
+        </div>
     </div>
 </template>
 
@@ -25,16 +27,17 @@ export default {
     SearchBar,
   },
   props: {
-
   },
   methods: {
-    // Fonction from SearchBar child comp
+    // Fonction from SearchBar child comp ($emit used)
     show(weather) {
         document.querySelector('.wcard-wrapper').innerHTML = "";
+        document.querySelector('.wcard-wrapper').innerHTML += `<router-link :to="{ name: 'WeatherDetails', params: { id: ${weather.name} }">`;
         document.querySelector('.wcard-wrapper').innerHTML += `<div class="wcard-image"><img src="${this.api_icons}${weather.icon}.png"</div>`;
         document.querySelector('.wcard-wrapper').innerHTML += `<div class="wcard-location">${weather.name}, ${weather.country}</div>`;
         document.querySelector('.wcard-wrapper').innerHTML += `<div class="wcard-temp">${weather.temp}°C</div>`;
         document.querySelector('.wcard-wrapper').innerHTML += `<div class="wcard-description">${weather.desc}</div>`;
+        document.querySelector('.wcard-wrapper').innerHTML += `</router-link>`;
     }
   }
 }

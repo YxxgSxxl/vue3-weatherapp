@@ -9,7 +9,7 @@ import WeatherDetails from './page/weatherDetails.vue';
 const routes = [
     { path: '/', component: Home },
     { path: '/Dashboard', component: Dashboard },
-    { path: '/Weather/:id', component: WeatherDetails }
+    { name: 'WeatherDetails', path: '/WeatherDetails/:id', component: WeatherDetails }
 ]
 
 const router = createRouter({
