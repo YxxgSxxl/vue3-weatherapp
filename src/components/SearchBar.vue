@@ -2,62 +2,53 @@
     <div class="searchbar-wrapper">
         <input type="text" name="" id="" v-model.trim="query" @keydown.enter="search()" placeholder="Search the city you want...">
         <p></p>
-        <div class="searchbar-result">
-            <WeatherCard/>
-        </div>
     </div>
 </template>
 
 <script>
 import * as AppConfig from '../../app.config'; /* Config file (API key) initialized */
-import WeatherCard from './WeatherCard.vue'; /* Weather Card component initialized */
 
 export default {    
     data() {
         return {
             api_base: 'http://api.openweathermap.org/data/2.5/weather?q=',
+            api_icons: 'https://openweathermap.org/img/w/',
             query: '',
-            weather: {}
+            weather: {},
         }
-    },
-
-    components: {
-        WeatherCard,
     },
     
     methods: {
-        // search() {
-        //     fetch(`${this.api_base}${this.query}&units=metric&appid=${AppConfig.APIKEY}`)
-        //     .then(res => {
-        //         res.json();
-        //     }).then(this.results);
-        // },
-        // results(results) {
-        //     this.weather = results;
-        //     console.log(results);
-        // },
         async search() {
             const query = await fetch(`${this.api_base}${this.query}&units=metric&appid=${AppConfig.APIKEY}`)
             .catch(error => console.log(error));
             // Check the statement of the query
             if (query.ok) {
-                const weather = await query.json();
+                // const weather = await query.json();
 
                 document.querySelector('p').innerHTML = ""; 
 
-                Object.keys(weather).forEach(key => {
-                console.log(key, weather[key]);
+                Object.keys(this.weather).forEach(key => {
+                    console.log(key, this.weather[key]);
+                });
 
-                return WeatherCard;
-            });
-                
-                // document.querySelector('p').innerHTML = "<a href='http://api.openweathermap.org/data/2.5/weather?q=" + this.query + "&units=metric&appid=" + AppConfig.APIKEY +"' target='_blank'>" + this.query +"</a><br><br>";
-                
-                // console.log(weather);
-    
-                // document.querySelector('p').innerHTML += JSON.stringify(weather);                
+                // let searchres = document.querySelector('.searchbar-result');
+                // let wicon = this.api_icons + this.weather + Object.values(this.weather) + ".png";
+                // let wname = this.weather.name;
+                // let wcountry = this.weather.sys.country;
+
+                // searchres.innerHTML = '';
+                // searchres.innerHTML += '<router-link class="wcard-wrapper" to="/Weather">';
+                // searchres.innerHTML += `<div class="wcard-image"><img src="${wicon}" alt="Weather Card Image">${wicon + " " + this.weather}</div>`;
+                // searchres.innerHTML += wname + ", " + wcountry;
+                // searchres.innerHTML += '<router-link class="wcard-wrapper" to="/Weather">';
             } else {
+                let searchres = document.querySelector('.searchbar-result');
+                
+                searchres.innerHTML = ""; 
+                
                 let error = 'Ville non trouvée';
+                
                 document.querySelector('p').innerHTML = "<span style='color: #b45252;'>" + error + "</span>";
             }
         },

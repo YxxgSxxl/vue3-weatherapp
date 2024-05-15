@@ -2,7 +2,7 @@
   <header>
     <nav-link>
         <a href="#">
-            <img src="/img/weather-logo.png" alt="Header Logo">
+            <img src="/public/img/weather-logo.png" alt="Header Logo">
         </a>
     </nav-link>
 
@@ -20,10 +20,6 @@
 
 <script>
 export default {
-    data() {
-        return {
-        }
-    },
     props: {
     }
 }

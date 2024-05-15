@@ -1,21 +1,21 @@
 <template>
   <router-link class="wcard-wrapper" to="/Weather">
-    <div class="wcard-image">
-      <img src="/img/weather/sun.png" alt="Weather Card Image">
-    </div>
-    <div class="wcard-weather">Sunny</div>    
-    <div class="wcard-location">Mulhouse, FR</div>
-    <div class="wcard-temp">25°C</div>
+    <div class="wcard-image"></div>
+    <div class="wcard-weather"></div>    
+    <div class="wcard-location"></div>
+    <div class="wcard-temp"></div>
   </router-link>
 </template>
 
 <script>
 export default {
-
+  data() {
+    return
+  }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .wcard-wrapper {
   background-color: rgba(159, 159, 159, .3);
   width: 50%;
