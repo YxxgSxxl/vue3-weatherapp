@@ -34,15 +34,16 @@ export default {
   methods: {
     // Fonction from SearchBar child comp
     show(weather) {
-        document.querySelector('.wcard-wrapper').innerText = "";
+        document.querySelector('.wcard-wrapper').innerHTML = "";
         document.querySelector('.wcard-wrapper').innerHTML += `<div class="wcard-image"><img src="${this.api_icons}${weather.icon}.png"</div>`;
         document.querySelector('.wcard-wrapper').innerHTML += `<div class="wcard-location">${weather.name}, ${weather.country}</div>`;
+        document.querySelector('.wcard-wrapper').innerHTML += `<div class="wcard-temp">${weather.temp}°C</div>`;
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 /* Weather Card Comp */
 .wcard-wrapper {
   background-color: rgba(159, 159, 159, .3);

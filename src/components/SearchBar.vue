@@ -31,7 +31,7 @@ export default {
                     console.log(key, weather[key]);
                 });
 
-                this.$emit('weather', {icon: weather.weather[0].icon, name: weather.name, country: weather.sys.country});
+                this.$emit('weather', {icon: weather.weather[0].icon, name: weather.name, country: weather.sys.country, temp: weather.main.temp});
             } else {                
                 document.querySelector('.wcard-wrapper').innerHTML = ""; 
                 
