@@ -4,12 +4,12 @@ import App from './App.vue';
 import { createRouter, createWebHashHistory } from 'vue-router';
 import Home from './page/home.vue';
 import Dashboard from './page/dashboard.vue';
-import Weather from './page/weather.vue';
+import WeatherDetails from './page/weatherDetails.vue';
 
 const routes = [
     { path: '/', component: Home },
     { path: '/Dashboard', component: Dashboard },
-    { path: '/Weather', component: Weather }
+    { path: '/Weather/:id', component: WeatherDetails }
 ]
 
 const router = createRouter({

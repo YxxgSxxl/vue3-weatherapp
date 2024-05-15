@@ -3,14 +3,10 @@
         <h1>Search the city you want:</h1>
         
         <SearchBar @weather="show"/>
+        <p></p>
         
         <!-- WeatherCard here -->
-        <router-link class="wcard-wrapper" to="/Weather">
-
-        <!-- <div class="wcard-weather"></div>    
-
-            <div class="wcard-temp"></div> -->
-        </router-link>
+        <router-link class="wcard-wrapper" to="/Weather/:id"/>
     </div>
 </template>
 
@@ -38,6 +34,7 @@ export default {
         document.querySelector('.wcard-wrapper').innerHTML += `<div class="wcard-image"><img src="${this.api_icons}${weather.icon}.png"</div>`;
         document.querySelector('.wcard-wrapper').innerHTML += `<div class="wcard-location">${weather.name}, ${weather.country}</div>`;
         document.querySelector('.wcard-wrapper').innerHTML += `<div class="wcard-temp">${weather.temp}°C</div>`;
+        document.querySelector('.wcard-wrapper').innerHTML += `<div class="wcard-description">${weather.desc}</div>`;
     }
   }
 }
@@ -74,10 +71,17 @@ export default {
     font-size: 1.5em;
     font-weight: 500;
     text-shadow: 2px 3px rgba($color: #000000, $alpha: .35);
+    margin-bottom: 1rem;
   }
 
   .wcard-temp {
     font-size: 3em;
+    font-style: italic;
+    text-shadow: 3px 4px rgba($color: #000000, $alpha: .35);
+  }
+
+  .wcard-description {
+    font-size: 1.5em;
     font-style: italic;
     text-shadow: 3px 4px rgba($color: #000000, $alpha: .35);
   }

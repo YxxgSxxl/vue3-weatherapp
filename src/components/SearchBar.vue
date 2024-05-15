@@ -1,7 +1,6 @@
 <template>
     <div class="searchbar-wrapper">
         <input type="text" name="" id="" v-model.trim="query" @keydown.enter="search()" placeholder="Search the city you want...">
-        <p></p>
     </div>
 </template>
 
@@ -31,13 +30,13 @@ export default {
                     console.log(key, weather[key]);
                 });
 
-                this.$emit('weather', {icon: weather.weather[0].icon, name: weather.name, country: weather.sys.country, temp: weather.main.temp});
+                this.$emit('weather', {icon: weather.weather[0].icon, name: weather.name, country: weather.sys.country, temp: weather.main.temp, desc: weather.weather[0].description});
             } else {                
                 document.querySelector('.wcard-wrapper').innerHTML = ""; 
                 
-                let error = 'Ville non trouvée';
+                let error = 'City not found';
                 
-                document.querySelector('p').innerHTML = "<span style='color: #b45252;'>" + error + "</span>";
+                document.querySelector('p').innerHTML = "<span style='color: #b45252; font-size: 1.4em'>" + error + "</span>";
             }
         },
     },
@@ -56,11 +55,7 @@ input[type=text] {
 	color: #8d96ff;
 }
 
-.displayed {
-    display: inline;
-}
-
-.hidden {
-    display: hidden;
+.searchbar-wrapper {
+    margin-bottom: 2rem;
 }
 </style>

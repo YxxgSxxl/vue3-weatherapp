@@ -2,9 +2,15 @@
     <div class="home-wrapper">
         <h1>Welcome to the <span class="h1-gradient">Weather App!</span></h1>
     
-        <router-link to="/Weather">
+        <router-link to="/Weather/:id">
                 <a href="#"><li>Home</li></a>
         </router-link>
+
+        <section class="home-suggests">
+          <div></div>
+          <div></div>
+          <div></div>
+        </section>
     </div>
 </template>
 
