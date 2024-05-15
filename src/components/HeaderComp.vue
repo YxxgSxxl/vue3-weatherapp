@@ -2,7 +2,7 @@
   <header>
     <nav-link>
         <a href="#">
-            <img src="/public/img/weather-logo.png" alt="Header Logo">
+            <img src="/img/weather-logo.png" alt="Header Logo">
         </a>
     </nav-link>
 

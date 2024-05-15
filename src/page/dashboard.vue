@@ -19,7 +19,9 @@ export default {
     WeatherCard,
   },
   props: {
-    
+
+  },
+  methods: {
   }
 }
 </script>

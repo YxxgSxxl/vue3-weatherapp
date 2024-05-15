@@ -24,13 +24,17 @@ export default {
             .catch(error => console.log(error));
             // Check the statement of the query
             if (query.ok) {
-                // const weather = await query.json();
+                const weather = await query.json();
 
                 document.querySelector('p').innerHTML = ""; 
 
-                Object.keys(this.weather).forEach(key => {
-                    console.log(key, this.weather[key]);
+                Object.keys(weather).forEach(key => {
+                    console.log(key, weather[key]);
                 });
+
+                // console.log(weather);
+
+                // document.querySelector('p').innerHTML += this.$emit('wname', JSON.stringify(this.weather));
 
                 // let searchres = document.querySelector('.searchbar-result');
                 // let wicon = this.api_icons + this.weather + Object.values(this.weather) + ".png";
@@ -43,9 +47,9 @@ export default {
                 // searchres.innerHTML += wname + ", " + wcountry;
                 // searchres.innerHTML += '<router-link class="wcard-wrapper" to="/Weather">';
             } else {
-                let searchres = document.querySelector('.searchbar-result');
+                // let searchres = document.querySelector('.searchbar-result');
                 
-                searchres.innerHTML = ""; 
+                // searchres.innerHTML = ""; 
                 
                 let error = 'Ville non trouvée';
                 
@@ -53,7 +57,6 @@ export default {
             }
         },
     },
-
 }
 </script>
 

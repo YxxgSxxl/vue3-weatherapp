@@ -15,7 +15,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .wcard-wrapper {
   background-color: rgba(159, 159, 159, .3);
   width: 50%;
