@@ -20,8 +20,7 @@
 
 <script>
 export default {
-    props: {
-    }
+    name: 'HeaderComp',
 }
 </script>
 

@@ -8,6 +8,8 @@
 import * as AppConfig from '../../app.config'; /* Config file (API key) initialized */
 
 export default {    
+    name: 'SearchBar',
+    
     data() {
         return {
             api_base: 'http://api.openweathermap.org/data/2.5/weather?q=',
