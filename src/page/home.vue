@@ -2,24 +2,70 @@
     <div class="home-wrapper">
         <h1>Welcome to the <span class="h1-gradient">Weather App!</span></h1>
     
-        <router-link to="/">
-                <a href="#"><li>Home</li></a>
-        </router-link>
-
         <section class="home-suggests">
-          <h2>Suggestions:</h2>
-          <div></div>
-          <div></div>
-          <div></div>
+          <h2>City Featured:</h2>  
+
+          <CardRow v-for="(data, i) in 1" :key="i"/>
         </section>
     </div>
 </template>
 
 <script>
-export default {
-    name: 'homePage',
+import * as AppConfig from '../../app.config';
+import CardRow from '../components/CardRow.vue';
+// import { onMounted, ref } from 'vue';
 
-    components: {
+export default {
+  name: 'homePage',
+
+  components: {
+    CardRow,
+  },
+  setup() {
+    let city1 = 'New Orleans';
+    let city3 = 'Paris';
+    let city2 = 'Toronto';
+
+    const request1 = fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city1}&units=metric&appid=${AppConfig.APIKEY}`).then(response => response.json());
+    const request2 = fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city2}&units=metric&appid=${AppConfig.APIKEY}`).then(response => response.json());
+    const request3 = fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city3}&units=metric&appid=${AppConfig.APIKEY}`).then(response => response.json());
+    
+    Promise.all([request1, request2, request3])
+    .then(([data1, data2, data3]) => {
+      class Weather {
+        constructor(wname, wlang, wtemp, wdesc, wimg) {
+          this.wname = wname;
+          this.wlang = wlang;
+          this.wtemp = wtemp;
+          this.wdesc = wdesc;
+          this.wimg = wimg;
+        } 
+      }
+      // console.log(Weather);
+      
+      let data_weather = [];
+      // console.log(data_weather);
+
+      // console.log(data1, data2, data3);
+      const makeDataWeather = () => {
+        let three_weather = [];
+
+        for (const weather of [data1, data2, data3]) {
+          const new_weather = new Weather(weather.name, weather.sys.country, weather.main.temp, weather.weather[0].description, weather.weather[0].icon)
+          
+          three_weather.push(new_weather);
+          // console.log(three_weather);
+          data_weather.push(three_weather);
+          console.log(data_weather);
+          // data_weather.push(three_weather);
+        }
+      }
+
+      makeDataWeather();
+    })
+    .catch(error => {
+      console.error(error);
+    });
   }
 }
 </script>
