@@ -43,7 +43,7 @@ export default {
                     temp: res.main.temp,
                     description: res.weather[0].description,
                     icon: res.weather[0].icon,
-                })
+            })
 
             console.log(data_weather);
         })
