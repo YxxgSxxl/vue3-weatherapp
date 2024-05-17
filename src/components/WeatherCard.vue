@@ -22,6 +22,13 @@ export default {
 
 <style lang="scss">
 /* Weather Card Comp */
+.wcard-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 4rem 4rem 4rem;
+}
+
 .wcard-wrapper {
   background-color: rgba(159, 159, 159, 0.3);
   width: 60%;
@@ -72,6 +79,10 @@ export default {
 @media (min-width: 1200px) {
   .wcard-wrapper {
     width: 26%;
+  }
+
+  .wcard-row {
+    flex-direction: row;
   }
 }
 </style>

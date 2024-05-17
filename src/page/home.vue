@@ -3,7 +3,9 @@
         <section class="home-suggests">
           <h2>City Featured:</h2>  
 
-          <WeatherCard v-for="(data, i) in data_weather" :weatherData="data" :key="i"/>
+          <div class="wcard-row">
+            <WeatherCard v-for="(data, i) in data_weather" :weatherData="data" :key="i"/>
+          </div>
         </section>
     </div>
 </template>

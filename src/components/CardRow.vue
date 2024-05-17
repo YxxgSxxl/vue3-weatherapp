@@ -17,17 +17,5 @@ components: {
 </script>
 
 <style lang="scss">
-.wcard-row {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 0 4rem 4rem 4rem;
-}
 
-/* Large desktop Responsive */
-@media (min-width: 1200px) {
-  .wcard-row {
-    flex-direction: row;
-  }
-}
 </style>
