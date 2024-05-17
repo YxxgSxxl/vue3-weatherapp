@@ -5,14 +5,14 @@
         <SearchBar @query="search"/>
 
         <div class="weather-wrapper">
-            <!-- <WeatherCard v-for="(data, i) in 1" :weatherData="data" :key="i"/> -->
+            <WeatherCard v-for="(data, i) in data_weather" :weatherData="data" :key="i"/>
         </div>
     </div>
 </template>
 
 <script>
 import * as AppConfig from '../../app.config'; // Configuration file for the API key
-// import WeatherCard from '../components/WeatherCard.vue'; // WeatherCard comp
+import WeatherCard from '../components/WeatherCard.vue'; // WeatherCard comp
 import SearchBar from '../components/SearchBar.vue'; // SearchBar comp
 import { ref } from 'vue'; // Ref to pass data_weather before the DOM loading
 
@@ -21,12 +21,12 @@ export default {
 
     components: {
     SearchBar,
-    // WeatherCard,
+    WeatherCard,
   },
   methods: {
     async search(query) {
         let data_weather = ref([]);
-        alert(query);
+        // alert(query);
 
         await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=${AppConfig.APIKEY}`)
         .then(response => response.json())
@@ -48,9 +48,6 @@ export default {
         }
     },
   },
-  setup() {
-
-  }
 } 
 </script>
 
