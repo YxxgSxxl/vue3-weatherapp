@@ -10,7 +10,7 @@ This app is using the <a href="https://openweathermap.org" target="_blank">OpenW
 
 - This app is <a href="https://www.w3schools.com/html/html_responsive.asp" target="_blank">responsive</a>.
 
-<p align="left"> <a href="https://vuejs.org/"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original.svg" title="Vue3JS" alt="Vue3JS" width="40" height="40"/> </a> <a href="https://vuejs.org/"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/webpack/webpack-original.svg" title="WebPack" alt="WebPack" width="40" height="40"/> </a> <a href="https://sass-lang.com/"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" title="SASS" alt="SASS" width="40" height="40"/> </a> </p>
+<p> <a href="https://vuejs.org/"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original.svg" title="Vue3JS" alt="Vue3JS" width="40" height="40"/> </a> <a href="https://vuejs.org/"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/webpack/webpack-original.svg" title="WebPack" alt="WebPack" width="40" height="40"/> </a> <a href="https://sass-lang.com/"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" title="SASS" alt="SASS" width="40" height="40"/> </a> </p>
 
 ## API Key 
 To make the app work correctly, you need to get an API key (free) on <a href="https://openweathermap.org/api" target="_blank">OpenWeather Website</a>. 
