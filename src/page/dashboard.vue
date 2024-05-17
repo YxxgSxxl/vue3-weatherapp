@@ -12,17 +12,17 @@
 </template>
 
 <script>
-import * as AppConfig from '../../app.config'; // Configuration file for the API key
 import WeatherCard from '../components/WeatherCard.vue'; // WeatherCard comp
 import SearchBar from '../components/SearchBar.vue'; // SearchBar comp
 import { ref } from 'vue'; // Ref to pass data_weather before the DOM loading
+
+import OpenWeatherMapService from '../services/openweathermap.service';
 
 export default {
     name: 'dashboardPage',
 
     data() {
         return {
-            errorMsg: '',
         }
     },
     components: {
@@ -34,20 +34,9 @@ export default {
         let data_weather = ref([]);
         // alert(query);
 
-        await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=${AppConfig.APIKEY}`)
-        .then(response => response.json())
-        .then(res => {
-            data_weather.value.push({
-                    name: res.name,
-                    country: res.sys.country,
-                    temp: res.main.temp,
-                    description: res.weather[0].description,
-                    icon: res.weather[0].icon,
-            })
+        const weatherData = OpenWeatherMapService.getWeatherData(query);
 
-            console.log(data_weather);
-        })
-        .catch(error => alert(error));
+        data_weather.value.push(weatherData);
 
         return {
         data_weather,

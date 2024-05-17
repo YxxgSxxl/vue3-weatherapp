@@ -5,7 +5,6 @@
         <img src="/img/weather-logo.png" alt="Header Logo">
     </a>
 
-
     <ul>
         <router-link to="/">
             <a href="#"><li>Home</li></a>
@@ -13,7 +12,6 @@
         <router-link to="/dashboard">
             <a href="#"><li>DashBoard</li></a>
         </router-link>
-        
     </ul>
   </header>
 </template>

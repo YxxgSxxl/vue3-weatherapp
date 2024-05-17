@@ -14,9 +14,11 @@
 </template>
 
 <script>
-import * as AppConfig from '../../app.config'; // Configuration file for the API key
+import * as AppConfig from '../../app.config.js';
 import WeatherCard from '../components/WeatherCard.vue'; // WeatherCard comp
 import { ref } from 'vue'; // Ref to pass data_weather before the DOM loading
+
+import OpenWeatherMapService from '../services/openweathermap.service';
 
 export default {
   name: 'homePage',
@@ -29,20 +31,10 @@ export default {
     let data_weather = ref([]);
 
     cities.forEach(async (city) => {
-      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${AppConfig.APIKEY}`)
-      .then(response => response.json())
-      .then(res => {
-        data_weather.value.push({
-          name: res.name,
-          country: res.sys.country,
-          temp: res.main.temp,
-          description: res.weather[0].description,
-          icon: res.weather[0].icon,
-        })
-      }).catch(error => {console.error(error)})
+      const weatherData = await OpenWeatherMapService.getWeatherData(city);
+
+      data_weather.value.push(weatherData);
     })
-    
-    // console.log(data_weather);
 
     return {
       data_weather,
