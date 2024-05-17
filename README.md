@@ -11,9 +11,11 @@ This app is using the <a href="https://openweathermap.org" target="_blank">OpenW
 - This app is responsive. 
 
 ## API Key 
-To make the app work correctly, you need to get an API key (free) on <a href="https://openweathermap.org/api" target="_blank">OpenWeather Website</a> 
+To make the app work correctly, you need to get an API key (free) on <a href="https://openweathermap.org/api" target="_blank">OpenWeather Website</a>. 
 
-then, look at the root dir of the repo and rename the "app.config__blank.js" to "app.config.js" and add you API key in the file.
+Then, look at the root dir of the repo and rename the "app.config__blank.js" to "app.config.js" and add you API key in the file.
+
+Finally, change the APIKEY field with your personnal API key (do not share). You can also put different cities in this file.
 
 ## Project setup
 ```
