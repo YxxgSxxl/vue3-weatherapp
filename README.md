@@ -1,14 +1,14 @@
 # Weater App ! 
 This app is using the <a href="https://openweathermap.org" target="_blank">OpenWeather API</a>. 
 
-<a href="http://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=95542917d76459372397547a96610cd8" target="_blank">Exemple of API call</a> 
+<a href="http://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=95542917d76459372397547a96610cd8" target="_blank">Exemple of API call</a>.
 
 ## Further informations 
-- <a href="https://vuejs.org/" target="_blank">VueJS 3</a>  used with <a href="https://webpack.js.org/" target="_blank">webpack.</a>  
+- <a href="https://vuejs.org/" target="_blank">VueJS 3</a>  used with <a href="https://webpack.js.org/" target="_blank">webpack</a>.
 
 - <a href="https://sass-lang.com/" target="_blank">SCSS</a>  and <a href="https://necolas.github.io/normalize.css/" target="_blank">normalize.css</a>  used. 
 
-- This app is responsive. 
+- This app is <a href="https://www.w3schools.com/html/html_responsive.asp" target="_blank">responsive</a>.
 
 ## API Key 
 To make the app work correctly, you need to get an API key (free) on <a href="https://openweathermap.org/api" target="_blank">OpenWeather Website</a>. 
