@@ -1,19 +1,21 @@
 <template>
-    <div class="home-wrapper">    
-        <section class="home-suggests">
-          <h2>City Featured:</h2>  
+    <div class="home-wrapper">
+      <h1>Welcome to the <span class="h1-gradient">Weather App!</span></h1>
+    
+      <section class="home-suggests">
+        <h2>City Featured:</h2>  
 
-          <div class="wcard-row">
-            <WeatherCard v-for="(data, i) in data_weather" :weatherData="data" :key="i"/>
-          </div>
-        </section>
+        <div class="wcard-row">
+          <WeatherCard v-for="(data, i) in data_weather" :weatherData="data" :key="i"/>
+        </div>
+      </section>
     </div>
 </template>
 
 <script>
-import * as AppConfig from '../../app.config';
-import WeatherCard from '../components/WeatherCard.vue';
-import { ref } from 'vue';
+import * as AppConfig from '../../app.config'; // Configuration file for the API key
+import WeatherCard from '../components/WeatherCard.vue'; // WeatherCard comp
+import { ref } from 'vue'; // Ref to pass data_weather before the DOM loading
 
 export default {
   name: 'homePage',
@@ -22,7 +24,7 @@ export default {
     WeatherCard,
   },
   setup() {
-    let cities = ['New Orleans', 'Paris', 'Toronto'];
+    let cities = [AppConfig.CITY[0], AppConfig.CITY[1], AppConfig.CITY[2]];
     let data_weather = ref([]);
 
     cities.forEach(async (city) => {
@@ -39,7 +41,7 @@ export default {
       }).catch(error => {console.error(error)})
     })
     
-    console.log(data_weather);
+    // console.log(data_weather);
 
     return {
       data_weather,
@@ -48,10 +50,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   h1 {
     font-size: 2em;
     color: white;
+    margin: 4rem 0 3rem 0;
   }
 
   .h1-gradient {
@@ -68,13 +71,14 @@ export default {
     }
 
   h2 {
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
+    text-decoration: underline;
   }
 
 /* Large desktop Responsive */
 @media (min-width: 1200px) {
   h2 {
-    margin-bottom: 6rem;
+    margin-bottom: 2rem;
   }
 }
 </style>

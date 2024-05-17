@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import WeatherCard from '../components/WeatherCard.vue';
+import WeatherCard from './WeatherCard.vue';
 
 export default {
 name: 'CardRow',

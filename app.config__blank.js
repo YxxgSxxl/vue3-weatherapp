@@ -4,3 +4,7 @@
 
 const APIKEY = "YOUR API KEY HERE";
 exports.APIKEY = APIKEY
+
+// Cities that are displayed in the home page
+const CITY = ["Paris", "New York", "London"];
+exports.CITY = CITY

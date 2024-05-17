@@ -1,5 +1,5 @@
 <template>
-  <router-link class="wcard-wrapper" :to="weatherData.name">
+  <router-link class="wcard-wrapper" :to="'/city/' + weatherData.name">
     <div class="wcard-image">
       <img :src="imgSource(weatherData.icon)" alt="Weather current state image" loading="eager">
     </div>
@@ -20,14 +20,14 @@ export default {
   methods: {
     imgSource(source) {
       return 'https://openweathermap.org/img/w/' + source + '.png';
-    }
+    },
   },
   props: {
     weatherData: {
       type: Object,
       required: true,
     }
-  }
+  },
 }
 </script>
 
