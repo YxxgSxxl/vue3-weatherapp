@@ -47,6 +47,7 @@ export default {
 
             console.log(data_weather);
         })
+        .catch(error => alert(error));
 
         return {
         data_weather,
