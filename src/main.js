@@ -7,7 +7,7 @@ import Dashboard from './page/dashboard.vue';
 
 const routes = [
     { path: '/', component: Home },
-    { path: '/Dashboard', component: Dashboard },
+    { path: '/dashboard', component: Dashboard },
 ]
 
 const router = createRouter({

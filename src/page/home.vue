@@ -1,71 +1,47 @@
 <template>
-    <div class="home-wrapper">
-        <h1>Welcome to the <span class="h1-gradient">Weather App!</span></h1>
-    
+    <div class="home-wrapper">    
         <section class="home-suggests">
           <h2>City Featured:</h2>  
 
-          <CardRow v-for="(data, i) in 1" :key="i"/>
+          <WeatherCard v-for="(data, i) in data_weather" :weatherData="data" :key="i"/>
         </section>
     </div>
 </template>
 
 <script>
 import * as AppConfig from '../../app.config';
-import CardRow from '../components/CardRow.vue';
-// import { onMounted, ref } from 'vue';
+import WeatherCard from '../components/WeatherCard.vue';
+import { ref } from 'vue';
 
 export default {
   name: 'homePage',
 
   components: {
-    CardRow,
+    WeatherCard,
   },
   setup() {
-    let city1 = 'New Orleans';
-    let city3 = 'Paris';
-    let city2 = 'Toronto';
+    let cities = ['New Orleans', 'Paris', 'Toronto'];
+    let data_weather = ref([]);
 
-    const request1 = fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city1}&units=metric&appid=${AppConfig.APIKEY}`).then(response => response.json());
-    const request2 = fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city2}&units=metric&appid=${AppConfig.APIKEY}`).then(response => response.json());
-    const request3 = fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city3}&units=metric&appid=${AppConfig.APIKEY}`).then(response => response.json());
-    
-    Promise.all([request1, request2, request3])
-    .then(([data1, data2, data3]) => {
-      class Weather {
-        constructor(wname, wlang, wtemp, wdesc, wimg) {
-          this.wname = wname;
-          this.wlang = wlang;
-          this.wtemp = wtemp;
-          this.wdesc = wdesc;
-          this.wimg = wimg;
-        } 
-      }
-      // console.log(Weather);
-      
-      let data_weather = [];
-      // console.log(data_weather);
-
-      // console.log(data1, data2, data3);
-      const makeDataWeather = () => {
-        let three_weather = [];
-
-        for (const weather of [data1, data2, data3]) {
-          const new_weather = new Weather(weather.name, weather.sys.country, weather.main.temp, weather.weather[0].description, weather.weather[0].icon)
-          
-          three_weather.push(new_weather);
-          // console.log(three_weather);
-          data_weather.push(three_weather);
-          console.log(data_weather);
-          // data_weather.push(three_weather);
-        }
-      }
-
-      makeDataWeather();
+    cities.forEach(async (city) => {
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${AppConfig.APIKEY}`)
+      .then(response => response.json())
+      .then(res => {
+        data_weather.value.push({
+          name: res.name,
+          country: res.sys.country,
+          temp: res.main.temp,
+          description: res.weather[0].description,
+          icon: res.weather[0].icon,
+        })
+      }).catch(error => {console.error(error)})
     })
-    .catch(error => {
-      console.error(error);
-    });
+    
+    console.log(data_weather);
+
+    return {
+      data_weather,
+    }
   }
 }
 </script>

@@ -10,7 +10,7 @@
         <router-link to="/">
             <a href="#"><li>Home</li></a>
         </router-link>
-        <router-link to="/Dashboard">
+        <router-link to="/dashboard">
             <a href="#"><li>DashBoard</li></a>
         </router-link>
         
