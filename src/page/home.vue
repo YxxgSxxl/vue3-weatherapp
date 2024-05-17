@@ -66,4 +66,15 @@ export default {
 
     filter: drop-shadow(6px 3px 2px rgba(0, 0,0, .5));
     }
+
+  h2 {
+    margin-bottom: 3rem;
+  }
+
+/* Large desktop Responsive */
+@media (min-width: 1200px) {
+  h2 {
+    margin-bottom: 6rem;
+  }
+}
 </style>

@@ -3,6 +3,8 @@
         <h1>Search the city you want:</h1>
         
         <SearchBar/>
+
+        <!-- <WeatherCard v-for="(data, i) in 1" :weatherData="data" :key="i"/> -->
     </div>
 </template>
 

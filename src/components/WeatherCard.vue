@@ -1,22 +1,33 @@
 <template>
-  <div class="wcard-wrapper">
+  <router-link class="wcard-wrapper" :to="weatherData.name">
     <div class="wcard-image">
-      <img src="../../public/img/weather-logo.png" alt="Weather current state image">
+      <img :src="imgSource(weatherData.icon)" alt="Weather current state image" loading="eager">
     </div>
 
     <div class="wcard-location">
-      Charlotte, US
+      {{ weatherData.name }}, {{ weatherData.country }}
     </div>
 
-    <div class="wcard-temp">25°C</div>
+    <div class="wcard-temp">{{ weatherData.temp }}°C</div>
 
-    <div class="wcard-description">Sun Covered</div>
-  </div>
+    <div class="wcard-description">{{ weatherData.description }}</div>
+  </router-link>
 </template>
 
 <script>
 export default {
   name: 'WeatherCard',
+  methods: {
+    imgSource(source) {
+      return 'https://openweathermap.org/img/w/' + source + '.png';
+    }
+  },
+  props: {
+    weatherData: {
+      type: Object,
+      required: true,
+    }
+  }
 }
 </script>
 
