@@ -34,10 +34,12 @@ export default {
         let data_weather = ref([]);
         // alert(query);
 
-        const weatherData = OpenWeatherMapService.getWeatherData(query);
+        const weatherData = await OpenWeatherMapService.getWeatherData(query);
 
         data_weather.value.push(weatherData);
 
+        console.log(data_weather);
+        
         return {
         data_weather,
         }
