@@ -3,6 +3,7 @@
         <h1>Search the city you want:</h1>
         
         <SearchBar @query="search"/>
+        <p></p>
 
         <div class="weather-wrapper">
             <WeatherCard v-for="(data, i) in data_weather" :weatherData="data" :key="i"/>
@@ -19,6 +20,11 @@ import { ref } from 'vue'; // Ref to pass data_weather before the DOM loading
 export default {
     name: 'dashboardPage',
 
+    data() {
+        return {
+            errorMsg: '',
+        }
+    },
     components: {
     SearchBar,
     WeatherCard,
@@ -32,14 +38,13 @@ export default {
         .then(response => response.json())
         .then(res => {
             data_weather.value.push({
-                name: res.name,
-                country: res.sys.country,
-                temp: res.main.temp,
-                description: res.weather[0].description,
-                icon: res.weather[0].icon,
-            })
+                    name: res.name,
+                    country: res.sys.country,
+                    temp: res.main.temp,
+                    description: res.weather[0].description,
+                    icon: res.weather[0].icon,
+                })
 
-            // console.log(res);
             console.log(data_weather);
         })
 
