@@ -1,10 +1,10 @@
 <template>
   <header>
-    <nav-link>
-        <a href="#">
-            <img src="/img/weather-logo.png" alt="Header Logo">
-        </a>
-    </nav-link>
+
+    <a href="#">
+        <img src="/img/weather-logo.png" alt="Header Logo">
+    </a>
+
 
     <ul>
         <router-link to="/">

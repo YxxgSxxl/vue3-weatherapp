@@ -5,6 +5,7 @@
       <section class="home-suggests">
         <h2>City Featured:</h2>  
 
+        <!-- 3 cards row -->
         <div class="wcard-row">
           <WeatherCard v-for="(data, i) in data_weather" :weatherData="data" :key="i"/>
         </div>
