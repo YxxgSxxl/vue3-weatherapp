@@ -16,30 +16,26 @@ import WeatherCard from '../components/WeatherCard.vue'; // WeatherCard comp
 import SearchBar from '../components/SearchBar.vue'; // SearchBar comp
 import { ref } from 'vue'; // Ref to pass data_weather before the DOM loading
 
+
+
 import OpenWeatherMapService from '../services/openweathermap.service';
 
 export default {
     name: 'dashboardPage',
 
-    data() {
-        return {
-        }
-    },
     components: {
     SearchBar,
     WeatherCard,
   },
   methods: {
     async search(query) {
-        let data_weather = ref([]);
-        // alert(query);
-
         const weatherData = await OpenWeatherMapService.getWeatherData(query);
+        let data_weather = ref([]);
 
         data_weather.value.push(weatherData);
 
         console.log(data_weather);
-        
+
         return {
         data_weather,
         }

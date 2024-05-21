@@ -61,7 +61,7 @@ export default {
     -moz-text-fill-color: transparent;
 
     filter: drop-shadow(6px 3px 2px rgba(0, 0,0, .5));
-    }
+  }
 
   h2 {
     margin-bottom: 1rem;

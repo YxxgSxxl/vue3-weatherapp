@@ -4,13 +4,21 @@ export default class OpenWeatherMapService {
     static getWeatherData(city) {
         return fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${AppConfig.APIKEY}`)
         .then(response => response.json())
-        .then(res => {
+        .then(
+            res => {
             return {
                 name: res.name,
                 country: res.sys.country,
                 temp: res.main.temp,
                 description: res.weather[0].description,
                 icon: res.weather[0].icon,
+            }
+        })
+        .catch(error => {
+            console.log(error);
+
+            return {
+                error: "Erreur: " + error,
             }
         })
     }

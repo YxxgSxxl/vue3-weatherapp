@@ -12,6 +12,8 @@
 
     <div class="wcard-description">{{ weatherData.description }}</div>
   </router-link>
+
+  <div class="wcard-error" style="color: red;">{{ weatherData.error }}</div>
 </template>
 
 <script>
