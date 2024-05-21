@@ -3,7 +3,7 @@
     <Suspense>
     <!-- <p>{{ data_weather }}</p> -->
     <div class="wd-wrapper">
-      <CardDetails :weatherAll="weatherAll"/>
+      <CardDetails :dataFullWeather="data"/>
       <p>{{ $route.params.name }}</p>
     </div>
   </Suspense>

@@ -9,7 +9,7 @@ export default {
     name: "CardDetails",
     
     props: {
-    data_fullweather: {
+    dataFullWeather: {
       type: Object,
       required: true,
     }
