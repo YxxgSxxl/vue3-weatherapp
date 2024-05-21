@@ -19,6 +19,7 @@
 <script>
 export default {
   name: 'WeatherCard',
+  
   methods: {
     imgSource(source) {
       return 'https://openweathermap.org/img/w/' + source + '.png';
