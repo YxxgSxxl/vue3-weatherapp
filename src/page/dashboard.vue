@@ -6,7 +6,7 @@
         <p></p>
 
         <div class="weather-wrapper">
-            <WeatherCard v-for="(data, i) in data_weather" :weatherData="data" :key="i"/>
+            <WeatherCard v-for="(data, i) in 1" :weatherData="data" :key="i"/>
         </div>
     </div>
 </template>
