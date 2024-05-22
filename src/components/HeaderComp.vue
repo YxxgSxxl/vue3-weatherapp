@@ -2,7 +2,7 @@
   <header>
 
     <a href="#">
-        <img src="/img/weather-logo.png" alt="Header Logo">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="52" height="52" viewBox="0 0 48 48"> <path fill="#FF9800" d="M11 11H37V37H11z"></path><path fill="#FF9800" d="M11.272 11.272H36.728V36.728H11.272z" transform="rotate(-45.001 24 24)"></path><path fill="#FFEB3B" d="M13,24c0,6.077,4.923,11,11,11c6.076,0,11-4.923,11-11s-4.924-11-11-11C17.923,13,13,17.923,13,24"></path> </svg>
     </a>
 
     <ul>
@@ -34,6 +34,15 @@ header {
     align-items: center;
 
     box-shadow:  0 4px 16px -2px #393F86;
+
+    a svg {
+        animation: spin linear infinite 12s;
+    }
+
+    @keyframes spin {
+        from {transform:rotate(0deg);}
+        to {transform:rotate(360deg);}
+    }
 
     img {
         width: 48px;

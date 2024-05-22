@@ -3,8 +3,9 @@
     <Suspense>
     <!-- <p>{{ data_weather }}</p> -->
     <div class="wd-wrapper">
-      <CardDetails :dataFullWeather="data"/>
-      <p>{{ $route.params.name }}</p>
+      <WdetailsCard/>
+
+      <WdaysDetails v-for="(data, i) in 3" :key="i" :dataFullWeather="data"/>
     </div>
   </Suspense>
   </div>
@@ -16,42 +17,66 @@
 // import OpenWeatherMapService from '../services/openweathermap.service';
 
 import OpenWeatherMapService from '../services/openweathermap.service'; // Service
-import CardDetails from '../components/CardDetails.vue'; // Component
+import WdetailsCard from '../components/WdetailsCard.vue' // Component 1
+import WdaysDetails from '../components/WdaysDetails.vue'; // Component 2
 import { ref } from 'vue'; // Ref
 
 export default {
   name: 'weatherDetails',
 
   components: {
-    CardDetails,
+    WdetailsCard,
+    WdaysDetails,
   },
-  async mounted() {
-    // Fetch latitude and longitude of the weather chosed
+  async mount() {
     this.wname = this.$route.params.name;
+    // FIRST QUERY
+    const weatherCard = await OpenWeatherMapService.getWeatherData(this.name);
+
+    let data_weather = ref([]);
+
+    data_weather.value.push(weatherCard);
+
+    // console.log(weatherCard);
+
+    // SECOND QUERY
+    // Fetch latitude and longitude of the weather chosed
     
-    const weatherLatLon = await OpenWeatherMapService.getWeatherLatLon(this.wname); // First fetch to take Longitude and Latitude
+    // const weatherLatLon = await OpenWeatherMapService.getWeatherData(this.wname); // First fetch to take Longitude and Latitude
 
-    let data_coords = ref([]);
+    // let data_coords = ref([]);
 
-    data_coords.value.push(weatherLatLon);
+    // data_coords.value.push(weatherLatLon);
 
-    console.log();
 
-    const weatherAll = await OpenWeatherMapService.getWeatherDetails(weatherLatLon.lat, weatherLatLon.lon); // Second fetch to take Weather Informations on multiple days
+    // THIRD QUERY
+    const weatherAll = await OpenWeatherMapService.getWeatherDetails(weatherCard.lat, weatherCard.lon); // Second fetch to take Weather Informations on multiple days
 
-    let data_fullweather = ref([]);
+    // console.log(weatherAll);
 
-    data_fullweather.value.push(weatherAll);
+    let weatherList = weatherAll;
 
-    console.log(data_fullweather);
+    // let data_fullweather = ref([]);
+
+    // for (let i = 0; i < weatherList.list.length; i++) {
+    //   data_fullweather.value.push(weatherList.list[i]);
+    //   console.log(data_fullweather);
+    // }
+
 
     return {
-      data_fullweather,
+      data_weather,
+      // data_fullweather,
+      weatherList
     }
   }
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.wd-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 </style>

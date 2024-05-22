@@ -1,6 +1,8 @@
 <template>
     <div class="home-wrapper">
-      <h1>Welcome to the <span class="h1-gradient">Weather App!</span></h1>
+      <h1>
+        Welcome to the <span class="h1-gradient">Weather App!</span>
+      </h1>
     
       <section class="home-suggests">
         <h2>City Featured:</h2>  
@@ -51,8 +53,8 @@ export default {
   }
 
   .h1-gradient {
-    background-color: rgba(123,183,253,1);
-    background-image: linear-gradient( 109.6deg,  rgba(112,246,255,0.33) 11.2%, rgba(221,108,241,0.26) 42%, rgba(229,106,253,0.71) 71.5%, rgba(123,183,253,1) 100.2% );
+    background-color: var(--home-h1-color);
+    background-image: var(--home-h1-gradient);
     background-size: 100%;
     background-clip: text;
     -webkit-background-clip: text;

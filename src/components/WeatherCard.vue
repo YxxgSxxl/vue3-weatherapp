@@ -44,8 +44,8 @@ export default {
 }
 
 .wcard-wrapper {
-  background-color: rgba(159, 159, 159, 0.3);
-  width: 60%;
+  background-color: rgba(126, 137, 169, 0.3);
+  width: 70%;
   min-height: auto;
   margin-right: auto;
   margin-left: auto;
@@ -76,7 +76,7 @@ export default {
   }
 
   .wcard-temp {
-    font-size: 3em;
+    font-size: 2em;
     font-style: italic;
     text-shadow: 3px 4px rgba($color: #000000, $alpha: 0.35);
   }
