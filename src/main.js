@@ -1,23 +1,26 @@
-import { createApp } from 'vue';
-import App from './App.vue';
+import { createApp } from 'vue'; // Vue App instance
+import { createPinia } from 'pinia'; // Pinia Store instance
+import { createRouter, createWebHashHistory } from 'vue-router'; // Vue Rooter instance
+import App from './App.vue'; // Vue App component
 
-import { createRouter, createWebHashHistory } from 'vue-router';
-import HomePage from './page/HomePage.vue';
-import WeatherDetailsPage from './page/WeatherDetailsPage.vue';
-import DashboardPage from './page/DashboardPage.vue';
+import HomePage from './page/HomePage.vue'; // Home page
+import WeatherDetailsPage from './page/WeatherDetailsPage.vue'; // Weather Details page
+import DashboardPage from './page/DashboardPage.vue'; // Dashboard page
 
+// Vue Router routes
 const routes = [
     { path: '/', component: HomePage },
     { path: '/city/:name', component: WeatherDetailsPage },
     { path: '/dashboard', component: DashboardPage },
 ]
 
+// Vue Router history
 const router = createRouter({
     history: createWebHashHistory(),
     routes,
 });
 
-const VueApp = createApp(App);
+const VueApp = createApp(App); // Create Vue App
 
-VueApp.use(router);
-VueApp.mount('#app');
+VueApp.use(router); // Use Vue Router routes
+VueApp.mount('#app'); // Mount the Vue App
