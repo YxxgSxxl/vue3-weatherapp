@@ -20,7 +20,7 @@ export default class OpenWeatherMapService {
                 })
             .catch(error => {
                 console.log(error);
-
+                
                 return {
                     error: "Erreur: " + error,
                 }
@@ -50,7 +50,7 @@ export default class OpenWeatherMapService {
             .then(response => response.json())
             .then(
                 res => {
-                    // console.log(res);
+                    console.log(res);
 
                     return {
                         all: res,

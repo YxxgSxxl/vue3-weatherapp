@@ -1,14 +1,14 @@
 <template>
+  <Suspense>
   <div>
-    <Suspense>
     <!-- <p>{{ data_weather }}</p> -->
     <div class="wd-wrapper">
-      <WdetailsCard/>
+      <WdetailsCard :data_fullweather="data_fullweather"/>
 
       <WdaysDetails v-for="(data, i) in 3" :key="i" :dataFullWeather="data"/>
     </div>
-  </Suspense>
   </div>
+</Suspense>
 </template>
 
 <script>
@@ -28,46 +28,41 @@ export default {
     WdetailsCard,
     WdaysDetails,
   },
+  data() {
+    return {
+      data_FullWeather: null,
+    }
+  },  
   async mount() {
     this.wname = this.$route.params.name;
-    // FIRST QUERY
-    const weatherCard = await OpenWeatherMapService.getWeatherData(this.name);
-
-    let data_weather = ref([]);
-
-    data_weather.value.push(weatherCard);
-
-    // console.log(weatherCard);
+    // // FIRST QUERY
+    // const weatherCard = await OpenWeatherMapService.getWeatherData(this.name);
 
     // SECOND QUERY
     // Fetch latitude and longitude of the weather chosed
     
-    // const weatherLatLon = await OpenWeatherMapService.getWeatherData(this.wname); // First fetch to take Longitude and Latitude
+    const weatherLatLon = await OpenWeatherMapService.getWeatherLatLon(this.wname); // First fetch to take Longitude and Latitude
 
-    // let data_coords = ref([]);
+    let data_coords = ref([]);
 
-    // data_coords.value.push(weatherLatLon);
+    data_coords.value.push(weatherLatLon);
 
 
     // THIRD QUERY
-    const weatherAll = await OpenWeatherMapService.getWeatherDetails(weatherCard.lat, weatherCard.lon); // Second fetch to take Weather Informations on multiple days
+    const weatherAll = await OpenWeatherMapService.getWeatherDetails(weatherLatLon.lat, weatherLatLon.lon); // Second fetch to take Weather Informations on multiple days
 
-    // console.log(weatherAll);
+    console.log(weatherAll);
 
-    let weatherList = weatherAll;
+    let data_fullweather = ref([]);
 
-    // let data_fullweather = ref([]);
+    for (let i = 0; i < weatherAll.list.length; i++) {
+      data_fullweather.value.push(weatherAll.list[i]);
+    }
 
-    // for (let i = 0; i < weatherList.list.length; i++) {
-    //   data_fullweather.value.push(weatherList.list[i]);
-    //   console.log(data_fullweather);
-    // }
-
+    console.log(data_fullweather);
 
     return {
-      data_weather,
-      // data_fullweather,
-      weatherList
+      data_fullweather,
     }
   }
 }

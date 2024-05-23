@@ -5,8 +5,8 @@
         <SearchBar @query="search"/>
         <p></p>
 
-        <div class="weather-wrapper">
-            <WeatherCard v-for="(data, i) in 1" :weatherData="data" :key="i"/>
+        <div class="weather-wrapper" v-for="(data, i) in data_weather" :key="i">
+            <WeatherCard :weatherData="data"/>
         </div>
     </div>
 </template>

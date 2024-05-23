@@ -10,7 +10,7 @@
         <img src="http://openweathermap.org/img/w/10n.png" alt="Weather Days Image" loading="lazy">
       </div>
       <div class="cd-desc">
-          <p @click="a">Overclast Clouds {{ dataFullWeather.name }}</p>
+          <p>Overclast Clouds</p>
         </div>
       <div class="cd-temp">
         <p class="temp--1">
@@ -30,18 +30,14 @@
 export default {
     name: "WdaysDetails",
     
-    props: {
-    dataFullWeather: {
-      type: Object,
-      required: true,
-    },
+    // props: {
+    // dataFullWeather: {
+    //   type: Number,
+    //   required: true,
+    // },
 
     methods: {
-      a() {
-        console.log(this.dataFullWeather);
-      }
-    }
-  },
+    },
 }
 </script>
 
@@ -52,7 +48,7 @@ export default {
   align-items: center;
 
   &-wrapper {
-    background-color: var(--secondary-bg-color);
+    background-color: #2F3576;
     box-shadow:  0 4px 16px -2px #393F86;
     width: 80%;
     min-height: 4rem;
