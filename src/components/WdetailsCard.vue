@@ -47,4 +47,11 @@
         width: 20%;
     }
 }
+
+/* Large desktop Responsive */
+@media (min-width: 1200px) {
+    .wdc-image img {
+        width: 10%;
+    }
+}
 </style>

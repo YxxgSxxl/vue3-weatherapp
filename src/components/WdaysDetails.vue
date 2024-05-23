@@ -97,7 +97,7 @@
     flex-direction: column;
     align-items: center;
 
-    font-size: x-large;
+    font-size: larger;
 
     &-wrapper {
       background-color: #2F3576;
