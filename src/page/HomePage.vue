@@ -1,3 +1,21 @@
+<script setup>
+import * as AppConfig from '../../app.config.js';
+import WeatherCard from '../components/WeatherCard.vue'; // WeatherCard comp
+import { ref } from 'vue'; // Ref to pass data_weather before the DOM loading
+      
+import OpenWeatherMapService from '../services/openweathermap.service';
+      
+
+let cities = [AppConfig.CITY[0], AppConfig.CITY[1], AppConfig.CITY[2]];
+let data_weather = ref([]);
+      
+cities.forEach(async (city) => {
+  const weatherData = await OpenWeatherMapService.getWeatherData(city);
+      
+  data_weather.value.push(weatherData);
+})
+</script>
+
 <template>
     <div class="home-wrapper">
       <h1>
@@ -15,35 +33,6 @@
     </div>
 </template>
 
-<script>
-import * as AppConfig from '../../app.config.js';
-import WeatherCard from '../components/WeatherCard.vue'; // WeatherCard comp
-import { ref } from 'vue'; // Ref to pass data_weather before the DOM loading
-
-import OpenWeatherMapService from '../services/openweathermap.service';
-
-export default {
-  name: 'homePage',
-
-  components: {
-    WeatherCard,
-  },
-  setup() {
-    let cities = [AppConfig.CITY[0], AppConfig.CITY[1], AppConfig.CITY[2]];
-    let data_weather = ref([]);
-
-    cities.forEach(async (city) => {
-      const weatherData = await OpenWeatherMapService.getWeatherData(city);
-
-      data_weather.value.push(weatherData);
-    })
-
-    return {
-      data_weather,
-    }
-  }
-}
-</script>
 
 <style lang="scss">
   h1 {
