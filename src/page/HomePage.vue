@@ -1,7 +1,7 @@
 <script setup>
-import * as AppConfig from '../../app.config.js';
+import * as AppConfig from '../../app.config.js'; // Config file
 import WeatherCard from '../components/WeatherCard.vue'; // WeatherCard comp
-import { ref } from 'vue'; // Ref to pass data_weather before the DOM loading
+import { ref } from 'vue'; // Ref to make data reactive
       
 import OpenWeatherMapService from '../services/openweathermap.service';
       

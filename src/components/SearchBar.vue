@@ -1,3 +1,15 @@
+<script setup>
+import { defineEmits } from 'vue';
+
+let query = '';
+
+function search() {
+    const emit = defineEmits(['query', this.query]) // NOT WOKING HERE
+    
+    emit('query')
+}
+</script>
+
 <template>
     <div class="searchbar-wrapper">
         <input type="text" name="" id="" v-model.trim="query" @keydown.enter="search()" placeholder="Search the city you want...">
@@ -5,24 +17,6 @@
     </div>
 </template>
 
-<script>
-export default {    
-    name: 'SearchBar',
-    
-    data() {
-        return {
-            query: '',
-        }
-    },
-    
-    methods: {
-        search() {
-            this.$emit('query', this.query)
-            // alert(this.query);
-        }
-    }
-}
-</script>
 
 <style lang="scss" scoped>
 input[type=text] {

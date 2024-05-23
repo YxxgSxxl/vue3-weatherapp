@@ -1,3 +1,7 @@
+<script setup>
+
+</script>
+
 <template>
   <header>
 
@@ -15,12 +19,6 @@
     </ul>
   </header>
 </template>
-
-<script>
-export default {
-    name: 'HeaderComp',
-}
-</script>
 
 <style lang="scss" scoped>
 header {

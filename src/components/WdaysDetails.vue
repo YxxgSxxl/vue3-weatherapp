@@ -1,3 +1,7 @@
+<script setup>
+
+</script>
+
 <template>
   <div class="cd">
     <div class="cd-wrapper">
@@ -24,22 +28,6 @@
     </div>
   </div>
 </template>
-
-<script>
-
-export default {
-    name: "WdaysDetails",
-    
-    // props: {
-    // dataFullWeather: {
-    //   type: Number,
-    //   required: true,
-    // },
-
-    methods: {
-    },
-}
-</script>
 
 <style lang="scss" scoped>
 .cd {

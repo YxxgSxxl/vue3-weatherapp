@@ -1,3 +1,7 @@
+<script setup>
+
+</script>
+
 <template>
   <div class="wdc">
     <div class="wdc-wrapper">
@@ -23,13 +27,6 @@
   </div>
 </template>
 
-<script>
-export default {
-    name: "WdetailsCard",
-
-    props: [''],
-}
-</script>
 
 <style lang="scss" scoped>
 .wdc {

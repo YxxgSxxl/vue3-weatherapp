@@ -9,9 +9,9 @@ import DashboardPage from './page/DashboardPage.vue'; // Dashboard page
 
 // Vue Router routes
 const routes = [
-    { path: '/', component: HomePage },
-    { path: '/city/:name', component: WeatherDetailsPage },
-    { path: '/dashboard', component: DashboardPage },
+    { path: '/', name: 'home', component: HomePage },
+    { path: '/city/:name', name: 'details', component: WeatherDetailsPage },
+    { path: '/dashboard', name: 'dashboard', component: DashboardPage },
 ]
 
 // Vue Router history

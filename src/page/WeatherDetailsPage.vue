@@ -6,11 +6,6 @@ import { ref } from 'vue'; // Ref
 
   async () => {
     this.wname = this.$route.params.name;
-    // // FIRST QUERY
-    // const weatherCard = await OpenWeatherMapService.getWeatherData(this.name);
-
-    // SECOND QUERY
-    // Fetch latitude and longitude of the weather chosed
     
     const weatherLatLon = await OpenWeatherMapService.getWeatherLatLon(this.wname); // First fetch to take Longitude and Latitude
 
@@ -19,7 +14,7 @@ import { ref } from 'vue'; // Ref
     data_coords.value.push(weatherLatLon);
 
 
-    // THIRD QUERY
+    
     const weatherAll = await OpenWeatherMapService.getWeatherDetails(weatherLatLon.lat, weatherLatLon.lon); // Second fetch to take Weather Informations on multiple days
 
     console.log(weatherAll);
