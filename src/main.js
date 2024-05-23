@@ -20,7 +20,9 @@ const router = createRouter({
     routes,
 });
 
+const pinia = createPinia(); // Create Pinia Store
 const VueApp = createApp(App); // Create Vue App
 
+VueApp.use(pinia); // Use Pinia Store
 VueApp.use(router); // Use Vue Router routes
 VueApp.mount('#app'); // Mount the Vue App

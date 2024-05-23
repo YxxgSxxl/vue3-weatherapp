@@ -1,38 +1,32 @@
+<script setup>
+import { defineProps } from 'vue';
+
+const props = defineProps({
+  weatherData: Object,
+});
+
+function imgSource(source) {
+  return 'https://openweathermap.org/img/w/' + source + '.png';
+}
+</script>
+
 <template>
-  <router-link class="wcard-wrapper" :to="'/city/' + weatherData.name">
+  <router-link class="wcard-wrapper" :to="'/city/' + props.weatherData.name">
     <div class="wcard-image">
-      <img :src="imgSource(weatherData.icon)" alt="Weather current state image" loading="eager">
+      <img :src="imgSource(props.weatherData.icon)" alt="Weather current state image" loading="eager">
     </div>
 
     <div class="wcard-location">
-      {{ weatherData.name }}, {{ weatherData.country }}
+      {{ props.weatherData.name }}, {{ props.weatherData.country }}
     </div>
 
-    <div class="wcard-temp">{{ weatherData.temp }}°C</div>
+    <div class="wcard-temp">{{ props.weatherData.temp }}°C</div>
 
-    <div class="wcard-description">{{ weatherData.description }}</div>
+    <div class="wcard-description">{{ props.weatherData.description }}</div>
   </router-link>
 
-  <div class="wcard-error" style="color: red;">{{ weatherData.error }}</div>
+  <div class="wcard-error" v-if="props.weatherData.error" style="color: red;">{{ props.weatherData.error }}</div>
 </template>
-
-<script>
-export default {
-  name: 'WeatherCard',
-  
-  methods: {
-    imgSource(source) {
-      return 'https://openweathermap.org/img/w/' + source + '.png';
-    },
-  },
-  props: {
-    weatherData: {
-      type: Object,
-      required: true,
-    }
-  },
-}
-</script>
 
 <style lang="scss">
 /* Weather Card Comp */

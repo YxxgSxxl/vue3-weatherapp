@@ -1,39 +1,10 @@
-<template>
-  <Suspense>
-  <div>
-    <!-- <p>{{ data_weather }}</p> -->
-    <div class="wd-wrapper">
-      <WdetailsCard :data_fullweather="data_fullweather"/>
-
-      <WdaysDetails v-for="(data, i) in 3" :key="i" :dataFullWeather="data"/>
-    </div>
-  </div>
-</Suspense>
-</template>
-
-<script>
-// import * as AppConfig from '../../app.config';
-// import { useRoute } from 'vue-router';
-// import OpenWeatherMapService from '../services/openweathermap.service';
-
+<script setup>
 import OpenWeatherMapService from '../services/openweathermap.service'; // Service
 import WdetailsCard from '../components/WdetailsCard.vue' // Component 1
 import WdaysDetails from '../components/WdaysDetails.vue'; // Component 2
 import { ref } from 'vue'; // Ref
 
-export default {
-  name: 'weatherDetails',
-
-  components: {
-    WdetailsCard,
-    WdaysDetails,
-  },
-  data() {
-    return {
-      data_FullWeather: null,
-    }
-  },  
-  async mount() {
+  async () => {
     this.wname = this.$route.params.name;
     // // FIRST QUERY
     // const weatherCard = await OpenWeatherMapService.getWeatherData(this.name);
@@ -60,13 +31,21 @@ export default {
     }
 
     console.log(data_fullweather);
-
-    return {
-      data_fullweather,
-    }
   }
-}
 </script>
+
+<template>
+  <Suspense>
+  <div>
+    <!-- <p>{{ data_weather }}</p> -->
+    <div class="wd-wrapper">
+      <WdetailsCard :data_fullweather="data_fullweather"/>
+
+      <WdaysDetails v-for="(data, i) in 3" :key="i" :dataFullWeather="data"/>
+    </div>
+  </div>
+</Suspense>
+</template>
 
 <style lang="scss" scoped>
 .wd-wrapper {

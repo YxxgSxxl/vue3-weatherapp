@@ -1,3 +1,23 @@
+<script setup>
+import WeatherCard from '../components/WeatherCard.vue'; // WeatherCard comp
+import SearchBar from '../components/SearchBar.vue'; // SearchBar comp
+import { ref } from 'vue'; // Ref to pass data_weather before the DOM loading
+        
+import OpenWeatherMapService from '../services/openweathermap.service';
+        
+let data_weather = ref(undefined);
+        
+let isSearched = ref(false);
+        
+async function search(query) {
+    const data_weather = await OpenWeatherMapService.getWeatherData(query);
+        
+    console.log(data_weather);
+                
+    isSearched.value = true;
+}
+</script>
+
 <template>
     <div class="dashboard-wrapper">
         <h1>Search the city you want:</h1>
@@ -5,44 +25,12 @@
         <SearchBar @query="search"/>
         <p></p>
 
-        <div class="weather-wrapper" v-for="(data, i) in data_weather" :key="i">
-            <WeatherCard :weatherData="data"/>
+        <div class="weather-wrapper" v-if="isSearched">
+            <WeatherCard :weatherData="data_weather"/>
         </div>
     </div>
 </template>
 
-<script>
-import WeatherCard from '../components/WeatherCard.vue'; // WeatherCard comp
-import SearchBar from '../components/SearchBar.vue'; // SearchBar comp
-import { ref } from 'vue'; // Ref to pass data_weather before the DOM loading
-
-
-
-import OpenWeatherMapService from '../services/openweathermap.service';
-
-export default {
-    name: 'dashboardPage',
-
-    components: {
-    SearchBar,
-    WeatherCard,
-  },
-  methods: {
-    async search(query) {
-        const weatherData = await OpenWeatherMapService.getWeatherData(query);
-        let data_weather = ref([]);
-
-        data_weather.value.push(weatherData);
-
-        console.log(data_weather);
-
-        return {
-        data_weather,
-        }
-    },
-  },
-} 
-</script>
 
 <style lang="scss">
 
