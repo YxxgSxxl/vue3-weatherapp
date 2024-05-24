@@ -20,7 +20,7 @@ function imgSource(source) {
         {{ props.weatherCardData[0] }}
 
         <div class="wdc-location">
-            <!-- {{ props.weatherCardData[0].name }}, {{ props.weatherCardData[0].country }}  -->
+            <!-- {{ props.weatherCardData[0].name }}, {{ props.weatherCardData[0].country }} -->
         </div>
 
         <div class="wdc-temp">

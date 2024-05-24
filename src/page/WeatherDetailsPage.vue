@@ -11,7 +11,7 @@ const data_cardweather = ref([]); // Card Data
 const data_fullweather = ref([]); // Final data of weather
 
 async function prefetch() {
-  console.clear() // Flush console for debugging
+  // console.clear() // Flush console for debugging
 
   try {
     const cardweather = await OpenWeatherMapService.getWeatherData(route.params.name) // 1st fetch to take the informations for the Weather Card comp

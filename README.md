@@ -20,6 +20,17 @@ Then, look at the root dir of the repo and rename the "app.config__blank.js" to 
 Finally, change the APIKEY field with your personnal API key (do not share). You can also put different cities in this file.
 
 ## Project setup
+### Clone the project
+````
+git clone https://github.com/YxxgSxxl/vue3-weatherapp
+````
+
+### Change to the right directory
+```
+cd YourDirectory
+```
+
+### Install all the dependencies
 ```
 npm install
 ```

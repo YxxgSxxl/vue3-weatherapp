@@ -16,8 +16,6 @@ export default class OpenWeatherMapService {
 
                         lon: res.coord.lon,
                         lat: res.coord.lat,
-
-                        color: "hsl(" + Math.random() * 360 + ", 100%, 75%)"
                     }
                 })
             .catch(error => {
