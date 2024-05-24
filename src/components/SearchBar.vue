@@ -1,12 +1,11 @@
 <script setup>
-import { defineEmits } from 'vue';
+import { defineEmits, ref } from 'vue';
 
-let query = '';
+let query = ref('');
+let emit = defineEmits(['query']) // NOT WOKING HERE
 
 function search() {
-    const emit = defineEmits(['query', this.query]) // NOT WOKING HERE
-    
-    emit('query')
+    emit('query', query);
 }
 </script>
 
