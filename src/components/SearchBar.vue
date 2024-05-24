@@ -1,8 +1,9 @@
 <script setup>
 import { defineEmits, ref } from 'vue';
 
-let query = ref('');
 let emit = defineEmits(['query']) // NOT WOKING HERE
+
+let query = ref('');
 
 function search() {
     emit('query', query);

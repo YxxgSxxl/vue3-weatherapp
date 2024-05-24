@@ -1,28 +1,36 @@
 <script setup>
+import { defineProps } from 'vue';
 
+const props = defineProps({
+  weatherData: Object,
+});
+
+function imgSource(source) {
+  return 'https://openweathermap.org/img/w/' + source + '.png';
+}
 </script>
 
 <template>
   <div class="cd">
     <div class="cd-wrapper">
-      <!-- <p>{{ $route.params.name }}</p> -->
-      <!-- {{ dataFullWeather.all }} -->
       <div class="cd-date">
-        05/22
+        {{ props.weatherData.dt_txt }}
       </div>
-      <div class="cd-img">
-        <img src="http://openweathermap.org/img/w/10n.png" alt="Weather Days Image" loading="lazy">
-      </div>
-      <div class="cd-desc">
-          <p>Overclast Clouds</p>
+      <div class="cd-col">
+        <div class="cd-desc">
+            <p>{{ props.weatherData.weather[0].description }}</p>
+          </div>
+        <div class="cd-img">
+          <img :src="imgSource(props.weatherData.weather[0].icon)" alt="Weather Days Image" loading="lazy">
         </div>
+      </div>
       <div class="cd-temp">
         <p class="temp--1">
-          38.7°C
+          {{ props.weatherData.main.temp }}°C
         </p>
         <p>｜</p>
         <p class="temp--2">
-          35.2°C
+          {{ props.weatherData.main.feels_like }}°C
         </p>
       </div>
     </div>
@@ -51,19 +59,33 @@
 
   &-date {
     font-size: 1em;
-    margin-right: 0.8rem;
     color: #898dad;
+    max-width: 7rem;
   }
 
-  &-img {
-    text-align: start;
-    min-height: auto;
-    width: fit-content;
-  }
-  
-  &-desc {
-    width: 100%;
-    text-align: center;
+  &-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    padding-top: 15px;
+
+    &-img {
+      text-align: start;
+      min-height: auto;
+      width: fit-content;
+    }
+
+    p {
+      margin: 0;
+    }
+    
+    &-desc {
+      width: 100%;
+      height: fit-content;
+      text-align: center;
+    }
   }
 
   &-temp {
@@ -102,7 +124,7 @@
     &-wrapper {
       background-color: #2F3576;
       box-shadow:  0 4px 16px -2px #393F86;
-      width: 80%;
+      width: 40%;
       min-height: 4rem;
       border-radius: 10px;
       align-content: center;
@@ -115,8 +137,7 @@
 
     &-date {
       font-size: 1em;
-      margin-right: 0.8rem;
-      color: #898dad;
+      color: #c9cfff;
     }
 
     &-img {

@@ -1,27 +1,34 @@
 <script setup>
+import { defineProps } from 'vue';
 
+const props = defineProps({
+  weatherCardData: Object,
+});
+
+function imgSource(source) {
+  return 'https://openweathermap.org/img/w/' + source + '.png';
+}
 </script>
 
 <template>
   <div class="wdc">
     <div class="wdc-wrapper">
         <div class="wdc-image">
-            <img src="http://openweathermap.org/img/w/10n.png" alt="Weather current state image" loading="eager">
+            <img :src="imgSource(source)" alt="Weather current state image" loading="eager">
         </div>
 
+        {{ props.weatherCardData[0] }}
+
         <div class="wdc-location">
-            <!-- {{ weatherData.name }}, {{ weatherData.country }} -->
-            Uckange, FR
+            <!-- {{ props.weatherCardData[0].name }}, {{ props.weatherCardData[0].country }}  -->
         </div>
 
         <div class="wdc-temp">
-            <!-- {{ weatherData.temp }}°C -->
-            38°C
+            <!-- {{ props.weatherCardData[0].temp }}°C -->
         </div>
 
         <div class="wdc-description">
-            <!-- {{ weatherData.description }} -->
-            Focused Clouds
+            <!-- {{ props.weatherCardData[0].description }} -->
         </div>
     </div>
   </div>
@@ -50,8 +57,19 @@
 
 /* Large desktop Responsive */
 @media (min-width: 1200px) {
-    .wdc-image img {
+    .wdc {
+    &-image img {
         width: 10%;
     }
+
+    &-wrapper {
+        background-color: var(--secondary-bg-color);
+        box-shadow:  0 4px 16px -2px #393F86;
+        width: 40%;
+        min-height: 24rem;
+        border-radius: 10px;
+        padding: 0.8rem;
+    }
+}
 }
 </style>

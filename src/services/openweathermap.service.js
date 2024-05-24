@@ -16,41 +16,43 @@ export default class OpenWeatherMapService {
 
                         lon: res.coord.lon,
                         lat: res.coord.lat,
+
+                        color: "hsl(" + Math.random() * 360 + ", 100%, 75%)"
                     }
                 })
             .catch(error => {
                 console.log(error);
-                
+
                 return {
                     error: "Erreur: " + error,
                 }
             })
     }
 
-    // static getWeatherLatLon(city) {
-    //     return fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${AppConfig.APIKEY}`)
-    //         .then(response => response.json())
-    //         .then(res => {
-    //             return {
-    //                 lon: res.coord.lon,
-    //                 lat: res.coord.lat,
-    //             }
-    //         })
-    //         .catch(error => {
-    //             console.log(error);
+    static getWeatherLatLon(city) {
+        return fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${AppConfig.APIKEY}`)
+            .then(response => response.json())
+            .then(res => {
+                return {
+                    lon: res.coord.lon,
+                    lat: res.coord.lat,
+                }
+            })
+            .catch(error => {
+                console.log(error);
 
-    //             return {
-    //                 error: "Erreur: " + error,
-    //             }
-    //         })
-    // }
+                return {
+                    error: "Erreur: " + error,
+                }
+            })
+    }
 
     static getWeatherDetails(lat, lon) {
         return fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${AppConfig.APIKEY}`)
             .then(response => response.json())
             .then(
                 res => {
-                    console.log(res);
+                    // console.log(res);
 
                     return {
                         all: res,
