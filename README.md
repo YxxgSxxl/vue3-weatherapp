@@ -25,7 +25,7 @@ Finally, change the APIKEY field with your personnal API key (do not share). You
 git clone https://github.com/YxxgSxxl/vue3-weatherapp
 ````
 
-### Change to the right directory
+### Change directory to the right one
 ```
 cd YourDirectory
 ```
