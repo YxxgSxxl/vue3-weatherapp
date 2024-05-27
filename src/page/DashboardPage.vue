@@ -25,7 +25,8 @@ async function search(query) {
     
     // Error Handling
     if (data_weather.value[0].error) {
-        error = data_weather.value[0].error;
+        // error = data_weather.value[0].error;
+        error = "404 - City not found"
 
         setTimeout(() => {
             console.error(data_weather.value[0].error);
@@ -37,7 +38,6 @@ async function search(query) {
         error = "";
 
         isSearched.value = true;
-        console.log("B");
     }
     isLoading.value = false;
 
@@ -81,6 +81,7 @@ async function search(query) {
 
     .weather-error {
         color: red;
+        font-size: larger;
     }
 
     .weather-loading {

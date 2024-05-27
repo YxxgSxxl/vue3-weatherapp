@@ -16,6 +16,7 @@ function imgSource(source) {
       <div class="cd-date">
         {{ props.weatherData.dt_txt }}
       </div>
+
       <div class="cd-col">
         <div class="cd-desc">
             <p>{{ props.weatherData.weather[0].description }}</p>
@@ -24,6 +25,7 @@ function imgSource(source) {
           <img :src="imgSource(props.weatherData.weather[0].icon)" alt="Weather Days Image" loading="lazy">
         </div>
       </div>
+      
       <div class="cd-temp">
         <p class="temp--1">
           {{ props.weatherData.main.temp }}°C
