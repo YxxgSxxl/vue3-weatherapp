@@ -13,7 +13,7 @@ function search() {
 <template>
     <div class="searchbar-wrapper">
         <input type="text" name="" id="" v-model.trim="query" @keydown.enter="search()" placeholder="Search the city you want...">
-        <p>{{ query }}</p>
+        <!-- <p>{{ query }}</p> -->
     </div>
 </template>
 

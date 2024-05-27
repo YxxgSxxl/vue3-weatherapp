@@ -53,8 +53,6 @@ export default class OpenWeatherMapService {
                     // console.log(res);
 
                     return {
-                        all: res,
-                        name: res.city.name,
                         list: res.list,
                     }
                 })

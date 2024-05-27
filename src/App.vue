@@ -24,7 +24,8 @@ import HeaderComp from './components/HeaderComp.vue';
 
   /* Root Variables */
   --main-bg-color: #080838;
-  --secondary-bg-color: #2F3576;
+  --secondary-bg-color: #
+  ;
 
   --home-h1-color: rgba(123,183,253,1);
   --home-h1-gradient: linear-gradient( 109.6deg,  rgba(112,246,255,0.33) 11.2%, rgba(221,108,241,0.26) 42%, rgba(229,106,253,0.71) 71.5%, rgba(123,183,253,1) 100.2% );
@@ -32,5 +33,5 @@ import HeaderComp from './components/HeaderComp.vue';
 
 body {
   background-color: #080838;
-  }
+}
 </style>
