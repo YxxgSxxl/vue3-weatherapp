@@ -23,6 +23,7 @@ async function search(query) {
     // console.log(data_weather);
     data_weather.value.push(weatherData);
     
+    // Error Handling
     if (data_weather.value[0].error) {
         error = data_weather.value[0].error;
 

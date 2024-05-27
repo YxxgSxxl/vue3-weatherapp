@@ -24,7 +24,7 @@ import HeaderComp from './components/HeaderComp.vue';
 
   /* Root Variables */
   --main-bg-color: #080838;
-  --secondary-bg-color: #
+  --secondary-bg-color: #2F3576;
   ;
 
   --home-h1-color: rgba(123,183,253,1);
