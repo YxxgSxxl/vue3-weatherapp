@@ -61,3 +61,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 * Rework le design/layout de l'app
 * Améliorer le responsive design pour telephones/tablettes/ordinateurs
 * Ajouter davantage d'animations
+* Déployer l'app sur un serveur Vercel
