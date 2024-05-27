@@ -9,18 +9,12 @@ let data_weather = ref([]);
 let isSearched = ref(false);
 let isLoading = ref(false);
 let error = ref("");
-        
-// function isLoad() {
-//     isLoading = false;
-// }
 
 async function search(query) {
-    // isLoading = false;
     data_weather.value = [];
 
     const weatherData = await OpenWeatherMapService.getWeatherData(query.value);
-    
-    // console.log(data_weather);
+
     data_weather.value.push(weatherData);
     
     // Error Handling

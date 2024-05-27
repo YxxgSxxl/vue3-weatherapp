@@ -10,8 +10,11 @@ const route = useRoute(); // Route for the name of the city in the URL
 let data_cardweather = ref(null) // Card Data
 const data_fullweather = ref([]); // Final data of weather
 
+let isVisible = ref(false);
+let isLoading = ref(true);
+
 async function prefetch() {
-  console.clear() // Flush console for debugging
+  // console.clear() // Flush console for debugging
 
   try {
     const cardweather = await OpenWeatherMapService.getWeatherData(route.params.name) // 1st fetch to take the informations for the Weather Card comp
@@ -26,9 +29,11 @@ async function prefetch() {
       data_fullweather.value.push(weatherAll.list[i]);
     }
 
-    data_cardweather = cardweather
+    data_cardweather = cardweather;
+    
+    isLoading.value = false;
+    isVisible.value = true;
 
-    console.log(data_cardweather);
   } catch(error) {
       console.info(error);
   }
@@ -43,19 +48,21 @@ onMounted(async () => {
   }
 });
   
-// console.log(data_fullweather);
 </script>
 
 <template>
-  <Suspense>
   <div>
     <div class="wd-wrapper">
-      <WdetailsCard :weatherCardData="data_cardweather"/>
+      <div class="weather-loading" v-if="isLoading">
+            <!-- Loading icon from https://loading.io/css/ -->
+            <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
+
+      <WdetailsCard :weatherCardData="data_cardweather" v-if="isVisible"/>
 
       <WdaysDetails v-for="(data, i) in data_fullweather" :weatherData="data" :key="i"/>
     </div>
   </div>
-</Suspense>
 </template>
 
 <style lang="scss" scoped>

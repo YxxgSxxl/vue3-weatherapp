@@ -50,9 +50,14 @@ function imgSource(source) {
   text-decoration: none;
   box-shadow: 14px 12px 10px rgba($color: #101655, $alpha: 0.8);
 
+  transition: 0.3s ease;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+
+  &:hover {
+    background-color: rgba(136, 154, 206, 0.3);
+  }
 
   img {
     width: 40%;
