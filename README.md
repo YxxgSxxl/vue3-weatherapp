@@ -27,7 +27,7 @@ git clone https://github.com/YxxgSxxl/vue3-weatherapp
 
 ### Change directory to the right one
 ```
-cd vue3-weatherapp
+cd YourDirectory
 ```
 
 ### Install all the dependencies
