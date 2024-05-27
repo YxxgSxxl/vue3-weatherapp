@@ -14,25 +14,25 @@ function imgSource(source) {
   <div class="cd">
     <div class="cd-wrapper">
       <div class="cd-date">
-        {{ props.weatherData.dt_txt }}
+        {{ props.weatherData?.dt_txt }}
       </div>
 
       <div class="cd-col">
         <div class="cd-desc">
-            <p>{{ props.weatherData.weather[0].description }}</p>
+            <p>{{ props.weatherData?.weather[0].description }}</p>
           </div>
         <div class="cd-img">
-          <img :src="imgSource(props.weatherData.weather[0].icon)" alt="Weather Days Image" loading="lazy">
+          <img :src="imgSource(props.weatherData?.weather[0].icon)" alt="Weather Days Image" loading="lazy">
         </div>
       </div>
-      
+
       <div class="cd-temp">
         <p class="temp--1">
-          {{ props.weatherData.main.temp }}°C
+          {{ props.weatherData?.main.temp }}°C
         </p>
         <p>｜</p>
         <p class="temp--2">
-          {{ props.weatherData.main.feels_like }}°C
+          {{ props.weatherData?.main.feels_like }}°C
         </p>
       </div>
     </div>
@@ -63,6 +63,8 @@ function imgSource(source) {
     font-size: 1em;
     color: #898dad;
     max-width: 7rem;
+
+    max-width: 100px;
   }
 
   &-col {
@@ -72,6 +74,8 @@ function imgSource(source) {
     justify-content: center;
     align-self: center;
     padding-top: 15px;
+
+    transform: translateX(12px);
 
     &-img {
       text-align: start;
@@ -94,7 +98,9 @@ function imgSource(source) {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0rem;
+
+    max-width: 160px;
 
     font-size: smaller;
 
@@ -137,6 +143,10 @@ function imgSource(source) {
       padding: 0.8rem;
     }
 
+    &-col {
+      transform: translateX(22px);
+    }
+
     &-date {
       font-size: 1em;
       color: #c9cfff;
@@ -157,7 +167,7 @@ function imgSource(source) {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.2rem;
 
       font-size: smaller;
 

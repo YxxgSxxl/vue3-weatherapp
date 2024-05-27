@@ -7,7 +7,7 @@ import { useRoute } from 'vue-router'; // Vue Routeur
 
 
 const route = useRoute(); // Route for the name of the city in the URL
-const data_cardweather = ref([]); // Card Data
+let data_cardweather = ref(null) // Card Data
 const data_fullweather = ref([]); // Final data of weather
 
 async function prefetch() {
@@ -16,19 +16,19 @@ async function prefetch() {
   try {
     const cardweather = await OpenWeatherMapService.getWeatherData(route.params.name) // 1st fetch to take the informations for the Weather Card comp
 
-    // const weatherLatLon = await OpenWeatherMapService.getWeatherLatLon(route.params.name); // 2nd fetch to take Longitude and Latitude
-    const weatherAll = await OpenWeatherMapService.getWeatherDetails(cardweather.lat, cardweather.lon); // 2.5th fetch to take Weather Informations on multiple days
+    let lat = cardweather.lat;
+    let lon = cardweather.lon
+
+    const weatherAll = await OpenWeatherMapService.getWeatherDetails(lat, lon); // 2.5th fetch to take Weather Informations on multiple days
 
   
     for (let i = 0; i < weatherAll.list.length; i++) {
       data_fullweather.value.push(weatherAll.list[i]);
     }
-    
-    // data_fullweather.value.concat(cardweather);
-    // data_fullweather.value.push(cardweather);
 
-    console.log(data_fullweather);
-    
+    data_cardweather = cardweather
+
+    console.log(data_cardweather);
   } catch(error) {
       console.info(error);
   }
@@ -38,7 +38,7 @@ onMounted(async () => {
   prefetch()
   
   return {
-    // data_cardweather,
+    data_cardweather,
     data_fullweather,
   }
 });

@@ -13,23 +13,23 @@ function imgSource(source) {
 <template>
   <div class="wdc">
     <div class="wdc-wrapper">
-        <div class="wdc-image">
-            <img :src="imgSource(source)" alt="Weather current state image" loading="eager">
-        </div>
-
-        {{ props.weatherCardData[0] }}
-
         <div class="wdc-location">
-            <!-- {{ props.weatherCardData[0].name }}, {{ props.weatherCardData[0].country }} -->
-        </div>
+            {{ props.weatherCardData?.name }}, {{ props.weatherCardData?.country }}
 
-        <div class="wdc-temp">
-            <!-- {{ props.weatherCardData[0].temp }}°C -->
+            <div class="wdc-image">
+            <img :src="imgSource(props.weatherCardData?.icon)" alt="Weather current state image" loading="eager">
         </div>
-
+        </div>
+        
         <div class="wdc-description">
-            <!-- {{ props.weatherCardData[0].description }} -->
+            <div class="wdc-temp">
+                {{ props.weatherCardData?.temp }}°C
+            </div>
+
+            <p>{{ props.weatherCardData?.description }}</p>
         </div>
+        
+
     </div>
   </div>
 </template>
@@ -40,6 +40,7 @@ function imgSource(source) {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0;
     
     &-wrapper {
         background-color: var(--secondary-bg-color);
@@ -48,10 +49,38 @@ function imgSource(source) {
         min-height: 24rem;
         border-radius: 10px;
         padding: 0.8rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
     }
+    
+    &-location {
+        background: var(--details-loc-gradient);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 2.5em;
+        font-weight: 500;
 
-    &-image img {
-        width: 20%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .wdc-image img {
+            width: 15%;
+        }
+    }
+    
+    &-description {
+        p {
+            font-size: larger;
+        }
+
+
+    }
+    
+    .wdc-temp {
+        font-size: 2.5em;
+        font-weight: 300;
     }
 }
 
@@ -59,17 +88,21 @@ function imgSource(source) {
 @media (min-width: 1200px) {
     .wdc {
     &-image img {
-        width: 10%;
+        width: 12%;
     }
 
     &-wrapper {
-        background-color: var(--secondary-bg-color);
-        box-shadow:  0 4px 16px -2px #393F86;
-        width: 40%;
-        min-height: 24rem;
-        border-radius: 10px;
-        padding: 0.8rem;
+            background-color: var(--secondary-bg-color);
+            box-shadow:  0 4px 16px -2px #393F86;
+            width: 40%;
+            min-height: 24rem;
+            border-radius: 10px;
+            padding: 0.8rem;
+        }
+
+        &-location {
+            font-size: 3.5em;
+        }
     }
-}
 }
 </style>
