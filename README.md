@@ -56,8 +56,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### (FR) Points à améliorer
 * Utiliser Axios pour les requettes fetch
 * Limiter davantage la redondance du code
+* Une meilleure gestion des erreurs
 * Utiliser SASS-Dart pour pouvoir faire des imports (@use au lieu de @import)
 * Rework le design/layout de l'app
 * Améliorer le responsive design pour telephones/tablettes/ordinateurs
 * Ajouter davantage d'animations
-* Une meilleure gestion des erreurs
